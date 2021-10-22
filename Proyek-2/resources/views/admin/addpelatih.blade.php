@@ -6,13 +6,18 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="card-header">
-					<h3 class="card-title">
-            Data Pelatih
-          </h3>
-        </div>
+        <div class="card-header">
+					<a href="/pelatih"> 
+						<h3 class="card-title">
+							<span class="btn btn-secondary col fileinput-button dz-clickable">
+                <i class="fa fa-reply"></i>
+								<span >Data Pelatih</span>
+							</span>
+						</h3>
+					</a>
+				</div>
         <div class="card-body">
-          <form method="POST" action="/add" enctype="multipart/from-data">
+          <form method="POST" action="/add" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="card-body">
               <div class="form-group">
@@ -20,12 +25,18 @@
                 <input type="" name="nama_pelatih" class="form-control" id="" placeholder="Masukan Nama" required>
               </div>
               <div class="form-group">
-                <label>Jenis Kelamin</label>
-                <input type="" name="gender_pelatih" class="form-control" id="" placeholder="Jenis kelamin">
+                <label>Jenis Kelamin&nbsp;
+                <input type="radio" name="gender_pelatih" value="Laki-laki"> Laki-laki &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="gender_pelatih" value="Perempuan"> Perempuan
+                </label>
               </div>
               <div class="form-group">
                 <label>Jenis Tari</label>
                 <input type="" name="jenis_tari" class="form-control" id="" placeholder="Jenis Tari yang Dikuasai">
+              </div>
+              <div class="form-group">
+                <label>Nomer Handphone</label>
+                <input type="" name="no_hp" class="form-control" id="" placeholder="Masukan Alamat">
               </div>
               <div class="form-group">
                 <label>Alamat</label>
@@ -33,7 +44,7 @@
               </div>
               <div class="form-group">
                 <label>Foto Pelatih</label>
-                <input type="file" class="form-control" id="" placeholder="Masukan Foto/Gambar">
+                <input type="file" class="form-control" name="foto_pelatih" id="" placeholder="Masukan Foto/Gambar">
               </div>
               <br>
               <div>

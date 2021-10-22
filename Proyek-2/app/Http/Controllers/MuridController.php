@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelatih;
+use File;
 
 class MuridController extends Controller
 {
@@ -13,11 +15,7 @@ class MuridController extends Controller
      */
     public function index()
     {
-        $data = [
-            "data_murid" => Murid::all()
-        ];
-
-        return view("/admin/admin/index", $data);
+        //
     }
 
     /**
@@ -28,12 +26,6 @@ class MuridController extends Controller
     public function create()
     {
         //
-        $data = [
-            "data_murid" => Murid::all()
-        ];
-    
-        return view("/admin/addmurid/index", $data);
-        }
     }
 
     /**

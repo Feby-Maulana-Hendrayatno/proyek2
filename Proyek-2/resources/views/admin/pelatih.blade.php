@@ -7,14 +7,14 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-				<a href="/addpelatih"> 
-					<h3 class="card-title">
-						<span class="btn btn-success col fileinput-button dz-clickable">
-                        <i class="fas fa-plus"></i>
-                        <span >Data Pelatih</span>
-                      </span>
-					</h3>
-				</a>
+					<a href="/addpelatih"> 
+						<h3 class="card-title">
+							<span class="btn btn-success col fileinput-button dz-clickable">
+								<i class="fas fa-plus"></i>
+								<span >Data Pelatih</span>
+							</span>
+						</h3>
+					</a>
 				</div>
 				<div class="card-body">
 					<table id="example1" class="table table-bordered table-striped">
@@ -24,6 +24,7 @@
 								<th>Nama Pelatih</th>
 								<th>Jenis Kelamin</th>
 								<th>Jenis Tari</th>
+								<th>Nomer Handphone</th>
 								<th>Alamat</th>
 								<th>Foto</th>
 								<th>Aksi</th>
@@ -37,11 +38,17 @@
 								<td>{{ $dp->nama_pelatih }}</td>
 								<td>{{ $dp->gender_pelatih }}</td>
 								<td>{{ $dp->jenis_tari }}</td>
+								<td>{{ $dp->no_hp }}</td>
 								<td>{{ $dp->alamat_pelatih }}</td>
-								<td>{{ $dp->foto_pelatih }}</td>
+								<td>
+									<img src="image/{{ $dp->foto_pelatih }}" alt="">
+								</td>
 								<td>
 									<button type="button" class="btn btn-warning">Edit</button>
-									<button type="button" class="btn btn-danger">Hapus</button>
+									{!! Form::open(['method' => 'DELETE','route' => ['pelatih.destroy', $pelatih->id_pelatih],'style'=>'display:inline']) !!}
+									{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+									{!! Form::close() !!}
+									
 								</td>
 							</tr>
 							@endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelatih;
+use File;
 
 class PelatihController extends Controller
 {
@@ -19,7 +20,7 @@ class PelatihController extends Controller
             "data_pelatih" => Pelatih::all()
         ];
 
-        return view("/admin/admin/index", $data);
+        return view("/admin/index", $data);
     }
 
     /**
@@ -47,9 +48,16 @@ class PelatihController extends Controller
      */
     public function store(Request $request)
     {
-        Pelatih::create($request->all());
+        $simpan = Pelatih::create($request->all());
 
-        return redirect()->back();
+        $foto = $request->file("foto_pelatih");
+        $fileName = $foto->getClientOriginalName();
+        $request->file("foto_pelatih")->move("image", $fileName);
+
+        $simpan->foto_pelatih = $fileName;
+        $simpan->save();
+
+        return redirect("/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
     }
 
     /**
@@ -71,7 +79,12 @@ class PelatihController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            "edit" => Pelatih::where("id", $id)->first()
+        ];
+        
+        return view("/admin/edit_pelatih", $data);
+        
     }
 
     /**
@@ -81,9 +94,33 @@ class PelatihController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $update = Pelatih::where("id", $request->id)->first();
+
+        $update->nama_pelatih = $request->nama_pelatih;
+        $update->jenis_tari = $request->jenis_tari;
+        $update->no_hp = $request->no_hp;
+        $update->alamat_pelatih = $request->alamat_pelatih;
+        $update->gender_pelatih = $request->gender_pelatih;
+        
+        if ($request->file("foto_pelatih") == "") {
+
+            $update->foto_pelatih = $update->foto_pelatih;
+
+        } else {
+
+            File::delete("image/".$update->foto_pelatih);
+            
+            $file = $request->file("foto_pelatih");
+            $fileName = $file->getClientOriginalName();
+            $request->file("foto_pelatih")->move("image", $fileName);
+            $update->foto_pelatih = $fileName;
+        }
+
+        $update->update();
+
+        return redirect("/pelatih")->with("update", "Data Berhasil di update");
     }
 
     /**
@@ -94,6 +131,12 @@ class PelatihController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Pelatih::where("id", $id)->first();
+
+        File::delete("image/".$hapus->foto_pelatih);
+
+        Pelatih::where("id", $id)->delete();
+
+        return redirect()->back();
     }
 }
