@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pelatih;
+use App\Models\Murid;
 use File;
 
 class MuridController extends Controller
@@ -15,7 +15,11 @@ class MuridController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            "data_murid" => Murid::all()
+        ];
+
+        return view("/admin/index", $data);
     }
 
     /**
@@ -25,7 +29,12 @@ class MuridController extends Controller
      */
     public function create()
     {
-        //
+        // = SELECT * FROM murid;
+        $data = [
+        "data_murid" => Murid::all()
+     ];
+ 
+    return view("/admin/addmurid/index", $data);
     }
 
     /**
@@ -36,7 +45,16 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $simpan = Murid::create($request->all());
+
+        $foto = $request->file("foto_murid");
+        $fileName = $foto->getClientOriginalName();
+        $request->file("foto_murid")->move("image", $fileName);
+
+        $simpan->foto_murid = $fileName;
+        $simpan->save();
+
+        return redirect("/murid")->with("tambah", "Data Berhasil di Tambahkan");
     }
 
     /**
@@ -57,9 +75,14 @@ class MuridController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-    }
+{
+    $data = [
+        "edit" => Pelatih::where("id", $id)->first()
+    ];
+    
+    return view("/admin/edit_pelatih", $data);
+    
+}
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +93,32 @@ class MuridController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Murid::where("id", $request->id)->first();
+
+        $update->nama_murid = $request->nama_murid;
+        $update->umur = $request->umur;
+        $update->gender_murid = $request->gender_murid;
+        $update->no_hp = $request->no_hp;
+        $update->alamat_murid = $request->alamat_murid;
+        
+        
+        if ($request->file("foto_murid") == "") {
+
+            $update->foto_murid = $update->foto_murid;
+
+        } else {
+
+            File::delete("image/".$update->foto_murid);
+            
+            $file = $request->file("foto_murid");
+            $fileName = $file->getClientOriginalName();
+            $request->file("foto_murid")->move("image", $fileName);
+            $update->foto_murid = $fileName;
+        }
+
+        $update->update();
+
+        return redirect("/murid")->with("update", "Data Berhasil di update");
     }
 
     /**
@@ -81,6 +129,12 @@ class MuridController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Murid::where("id", $id)->first();
+
+        File::delete("image/".$hapus->foto_murid);
+
+        Pelatih::where("id", $id)->delete();
+
+        return redirect()->back();
     }
 }

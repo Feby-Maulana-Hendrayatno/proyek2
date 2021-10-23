@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Murid extends Model
 {
     use HasFactory;
+
+    protected $table = "tbl_murid";
+
+    protected $guarded = [''];
+
+    public $timestamps = false;
 }

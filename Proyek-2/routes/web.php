@@ -45,3 +45,24 @@ Route::get('/murid', function () {
 
 Route::get("/admin", [AdminController::class, "dashboard"] );
 Route::delete('{pelatih}/delete','PelatiCotroller@destroy')->name('pelatih.destroy');
+
+
+//Data Murid
+Route::get('/murid', [PelatihController::class, 'index']);
+Route::get("/murid/edit/{id}", [PelatihController::class, 'edit']);
+Route::get('/murid/hapus/{id}', [PelatihController::class, 'destroy']);
+Route::post('/murid/update', [PelatihController::class, 'update']);
+
+Route::post('/add', [PelatihController::class, 'store']);
+
+Route::get('/addmurid', function () {
+
+    return view('/admin/addmurid');
+});
+
+Route::get('/murid', function () {
+    return view('/admin/murid');
+});
+
+Route::get("/admin", [AdminController::class, "dashboard"] );
+Route::delete('{murid}/delete','PelatiCotroller@destroy')->name('murid.destroy');
