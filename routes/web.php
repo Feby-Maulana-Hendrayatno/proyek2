@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelatihController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MuridController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,11 +33,11 @@ Route::get("/pelatih/edit/{id}", [PelatihController::class, 'edit']);
 Route::get('/pelatih/hapus/{id}', [PelatihController::class, 'destroy']);
 Route::post('/pelatih/update', [PelatihController::class, 'update']);
 
-Route::post('/add', [PelatihController::class, 'store']);
+Route::post('/pelatih/add', [PelatihController::class, 'store']);
 
-Route::get('/addpelatih', function () {
+Route::get('pelatih/addpelatih', function () {
 
-    return view('/admin/addpelatih');
+    return view('/admin/pelatih/addpelatih');
 });
 
 Route::get('/murid', function () {
@@ -48,21 +49,17 @@ Route::delete('{pelatih}/delete','PelatiCotroller@destroy')->name('pelatih.destr
 
 
 //Data Murid
-Route::get('/murid', [PelatihController::class, 'index']);
-Route::get("/murid/edit/{id}", [PelatihController::class, 'edit']);
-Route::get('/murid/hapus/{id}', [PelatihController::class, 'destroy']);
-Route::post('/murid/update', [PelatihController::class, 'update']);
+Route::get('/murid', [MuridController::class, 'index']);
+Route::get("/murid/edit/{id}", [MuridController::class, 'edit']);
+Route::get('/murid/hapus/{id}', [MuridController::class, 'destroy']);
+Route::post('/murid/update', [MuridController::class, 'update']);
 
-Route::post('/add', [PelatihController::class, 'store']);
+Route::post('murid/add', [MuridController::class, 'store']);
 
-Route::get('/addmurid', function () {
+Route::get('murid/addmurid', function () {
 
-    return view('/admin/addmurid');
-});
-
-Route::get('/murid', function () {
-    return view('/admin/murid');
+    return view('/admin/murid/addmurid');
 });
 
 Route::get("/admin", [AdminController::class, "dashboard"] );
-Route::delete('{murid}/delete','PelatiCotroller@destroy')->name('murid.destroy');
+Route::delete('{murid}/delete','MuridCotroller@destroy')->name('murid.destroy');

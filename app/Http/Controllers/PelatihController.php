@@ -35,7 +35,7 @@ class PelatihController extends Controller
         "data_pelatih" => Pelatih::all()
     ];
 
-    return view("/admin/addpelatih/index", $data);
+    return view("/admin/pelatih/addpelatih/index", $data);
     }
 
     
@@ -83,7 +83,7 @@ class PelatihController extends Controller
             "edit" => Pelatih::where("id", $id)->first()
         ];
         
-        return view("/admin/edit_pelatih", $data);
+        return view("/admin/pelatih/edit_pelatih", $data);
         
     }
 

@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					<a href="/addpelatih"> 
+					<a href="/murid/addmurid"> 
 						<h3 class="card-title">
 							<span class="btn btn-success col fileinput-button dz-clickable">
 								<i class="fas fa-plus"></i>
@@ -21,9 +21,9 @@
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Nama Pelatih</th>
+								<th>Nama Murid</th>
+								<th>Umur</th>
 								<th>Jenis Kelamin</th>
-								<th>Jenis Tari</th>
 								<th>Nomer Handphone</th>
 								<th>Alamat</th>
 								<th>Foto</th>
@@ -41,14 +41,13 @@
 								<td>{{ $dp->no_hp }}</td>
 								<td>{{ $dp->alamat_murid }}</td>
 								<td>
-									<img src="image/{{ $dp->foto_murid }}" alt="">
+									<img src="image/{{ $dp->foto_murid }}" alt="" width="150" height="100">
 								</td>
 								<td>
-									<button type="button" class="btn btn-warning">Edit</button>
-									{!! Form::open(['method' => 'DELETE','route' => ['murid.destroy', $murid->id_murid],'style'=>'display:inline']) !!}
-									{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-									{!! Form::close() !!}
-									
+									<a href="/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
+									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+										hapus
+									</a>
 								</td>
 							</tr>
 							@endforeach

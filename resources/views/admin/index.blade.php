@@ -18,7 +18,7 @@
 
 			<div class="card">
 				<div class="card-header">
-				<a href="/addpelatih"> 
+				<a href="/pelatih/addpelatih"> 
 					<h3 class="card-title">
 						<span class="btn btn-success col fileinput-button dz-clickable">
                         <i class="fas fa-plus"></i>

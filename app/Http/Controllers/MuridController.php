@@ -19,7 +19,7 @@ class MuridController extends Controller
             "data_murid" => Murid::all()
         ];
 
-        return view("/admin/index", $data);
+        return view("/admin/murid", $data);
     }
 
     /**
@@ -34,7 +34,7 @@ class MuridController extends Controller
         "data_murid" => Murid::all()
      ];
  
-    return view("/admin/addmurid/index", $data);
+    return view("/admin/murid/addmurid/index", $data);
     }
 
     /**
@@ -77,10 +77,10 @@ class MuridController extends Controller
     public function edit($id)
 {
     $data = [
-        "edit" => Pelatih::where("id", $id)->first()
+        "edit" => Murid::where("id", $id)->first()
     ];
     
-    return view("/admin/edit_pelatih", $data);
+    return view("/admin/murid/edit_pelatih", $data);
     
 }
 
@@ -91,7 +91,7 @@ class MuridController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $update = Murid::where("id", $request->id)->first();
 
@@ -133,7 +133,7 @@ class MuridController extends Controller
 
         File::delete("image/".$hapus->foto_murid);
 
-        Pelatih::where("id", $id)->delete();
+        Murid::where("id", $id)->delete();
 
         return redirect()->back();
     }
