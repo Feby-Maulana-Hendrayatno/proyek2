@@ -48,7 +48,6 @@
 									{!! Form::open(['method' => 'DELETE','route' => ['pelatih.destroy', $pelatih->id_pelatih],'style'=>'display:inline']) !!}
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
 									{!! Form::close() !!}
-									
 								</td>
 							</tr>
 							@endforeach
