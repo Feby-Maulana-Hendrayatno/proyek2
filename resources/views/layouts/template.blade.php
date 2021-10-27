@@ -12,6 +12,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="/template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -157,6 +158,17 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Forms
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+          <br>
+          <li class="nav-item">
+            <a href="forms" class="nav-link">
+            <i class="fas fa-book"></i>
+              <i class="nav-icon fas fa-kategori"></i>
+              <p>
+                Kategori
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

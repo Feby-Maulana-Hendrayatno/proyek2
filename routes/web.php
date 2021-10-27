@@ -46,11 +46,11 @@ Route::post('/pelatih/add', [PelatihController::class, 'store'])->middleware('ad
 
 Route::get('pelatih/addpelatih', function () {
 
-    return view('/admin/pelatih/addpelatih')->middleware('admin');
-});
+    return view('/admin/pelatih/addpelatih');
+})->middleware('pelatih');
 
 Route::get('/murid', function () {
-    return view('/admin/murid')->middleware('admin');
+    return view('/admin/murid')->middleware('admin');   
 });
 
 Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
@@ -67,8 +67,8 @@ Route::post('murid/add', [MuridController::class, 'store'])->middleware('admin')
 
 Route::get('murid/addmurid', function () {
 
-    return view('/admin/murid/addmurid')->middleware('admin');
-});
+    return view('/admin/murid/addmurid');
+})->middleware('admin');
 
 Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
 Route::delete('{murid}/delete','MuridCotroller@destroy')->name('murid.destroy')->middleware('admin');

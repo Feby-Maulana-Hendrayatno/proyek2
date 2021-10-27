@@ -11,7 +11,7 @@
 						<h3 class="card-title">
 							<span class="btn btn-success col fileinput-button dz-clickable">
 								<i class="fas fa-plus"></i>
-								<span >Data Pelatih</span>
+								<span >Data Murid</span>
 							</span>
 						</h3>
 					</a>
@@ -41,13 +41,11 @@
 								<td>{{ $dp->no_hp }}</td>
 								<td>{{ $dp->alamat_murid }}</td>
 								<td>
-									<img src="image/{{ $dp->foto_murid }}" alt="" width="150" height="100">
+									<img src="image/{{ $dp->foto_murid }}" alt="" width="90" height="100">
 								</td>
 								<td>
-									<a href="/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
-									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-										hapus
-									</a>
+									<a href="/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>
+									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this item?');"></a>
 								</td>
 							</tr>
 							@endforeach
