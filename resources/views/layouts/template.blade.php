@@ -156,7 +156,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/admin/murid/') }}" class="nav-link">
+                <a href="/admin/murid" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Murid</p>
                 </a>
