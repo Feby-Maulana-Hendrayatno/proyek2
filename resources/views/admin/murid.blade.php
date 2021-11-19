@@ -1,4 +1,26 @@
 @extends("layouts.template")
+@section("alerts")
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session("tambah"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Tambahkan',
+			'',
+			'success'
+			)
+		</script>
+		@elseif(session("update"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Update',
+			'',
+			'success'
+			)
+		</script>
+	@endif
+@stop
+
 
 @section("content")
 
@@ -21,10 +43,13 @@
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Nama Murid</th>
+								<th>Role</th>
+								<th>Nama</th>
+								<th>Email</th>
+								<th>Password</th>
 								<th>Umur</th>
-								<th>Jenis Kelamin</th>
-								<th>Nomer Handphone</th>
+								<th>Gender</th>
+								<th>No HP</th>
 								<th>Alamat</th>
 								<th>Foto</th>
 								<th>Aksi</th>
@@ -35,7 +60,10 @@
 							@foreach($data_murid as $dp)
 							<tr>
 								<td>{{ ++$no }}</td>
+								<td>{{ $dp->role }}</td>
 								<td>{{ $dp->nama_murid }}</td>
+								<td>{{ $dp->email }}</td>
+								<td>{{ $dp->password }}</td>
 								<td>{{ $dp->umur }}</td>
 								<td>{{ $dp->gender_murid }}</td>
 								<td>{{ $dp->no_hp }}</td>
@@ -45,7 +73,7 @@
 								</td>
 								<td>
 									<a href="/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>
-									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this item?');"></a>
+									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');"></i><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 							@endforeach

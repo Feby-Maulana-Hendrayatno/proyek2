@@ -22,8 +22,20 @@
                         <input type="hidden" name="id" value="{{ $edit->id }}">
                         <div class="card-body">
                             <div class="form-group">
+                                <label>Role</label>
+                                <input type="" name="role" class="form-control" id="" placeholder="Masukan Role" required value="{{ $edit->role }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Nama Pelatih</label>
                                 <input type="" name="nama_pelatih" class="form-control" id="" placeholder="Masukan Nama" required value="{{ $edit->nama_pelatih }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="" name="email" class="form-control" id="" placeholder="Masukan Email" required value="{{ $edit->email }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="" name="password" class="form-control" id="" placeholder="Password" required >
                             </div>
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
@@ -45,12 +57,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Nomer Handphone</label>
-                                <input type="" name="no_hp" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
+                                <input type="" name="no_hp" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->no_hp }}">
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
                                 <input type="" name="alamat_pelatih" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
-                            </div>
+                            </div>  
                             <div class="form-group">
                                 <label for=""> Gambar </label> <br>
                                 <img src="/image/{{ $edit->foto_pelatih }}" width="300">

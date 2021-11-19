@@ -20,30 +20,42 @@
           <form method="POST" action="/murid/add" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="card-body">
+            <div class="form-group">
+                <label>Role</label>
+                <input type="" name="role" class="form-control" id="" placeholder="Masukan Role" required>
+              </div>
               <div class="form-group">
-                <label>Nama Pelatih</label>
+                <label>Nama Murid</label>
                 <input type="" name="nama_murid" class="form-control" id="" placeholder="Masukan Nama" required>
               </div>
               <div class="form-group">
-                <label>umur</label>
-                <input type="number" name="umur" class="form-control" id="" placeholder="Jenis Tari yang Dikuasai">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" id="" placeholder="Masukan Email" required>
               </div>
               <div class="form-group">
-                <label>Jenis Kelamin&nbsp;
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" id="" placeholder="Masukan Password" required>
+              </div>
+              <div class="form-group">
+                <label>umur</label>
+                <input type="number" name="umur" class="form-control" id="" placeholder="Masukan umur anda"  required>
+              </div>
+              <div class="form-group">
+                <label>Gender&nbsp;
                 <input type="radio" name="gender_murid" value="Laki-laki"> Laki-laki &nbsp;&nbsp;&nbsp;
                 <input type="radio" name="gender_murid" value="Perempuan"> Perempuan
                 </label>
               </div>
               <div class="form-group">
-                <label>Nomer Handphone</label>
-                <input type="text" name="no_hp" class="form-control" id="" placeholder="Masukan Alamat">
+                <label>No HP</label>
+                <input type="text" name="no_hp" class="form-control" id="" placeholder="Nomor Handphone">
               </div>
               <div class="form-group">
                 <label>Alamat</label>
-                <input type="" name="alamat_murid" class="form-control" id="" placeholder="Masukan Alamat">
+                <input type="" name="alamat_murid" class="form-control" id="" placeholder="Alamat Murid">
               </div>
               <div class="form-group">
-                <label>Foto Pelatih</label>
+                <label>Foto</label>
                 <input type="file" class="form-control" name="foto_murid" id="" placeholder="Masukan Foto/Gambar">
               </div>
               <br>

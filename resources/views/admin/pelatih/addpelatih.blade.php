@@ -21,8 +21,20 @@
             {{ csrf_field() }}
             <div class="card-body">
               <div class="form-group">
+                <label>Role</label>
+                <input type="" name="role" class="form-control" id="" placeholder="Masukan Role" required>
+              </div>
+              <div class="form-group">
                 <label>Nama Pelatih</label>
                 <input type="text" name="nama_pelatih" class="form-control" id="" placeholder="Masukan Nama" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" id="" placeholder="Masukan Email" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="" name="password" class="form-control" id="" placeholder="Password" required>
               </div>
               <div class="form-group">
                 <label>Jenis Kelamin&nbsp;
@@ -36,7 +48,7 @@
               </div>
               <div class="form-group">
                 <label>Nomer Handphone</label>
-                <input type="text" name="no_hp" class="form-control" id="" placeholder="Masukan Alamat">
+                <input type="text" name="no_hp" class="form-control" id="" placeholder="Nomer Handphone">
               </div>
               <div class="form-group">
                 <label>Alamat</label>

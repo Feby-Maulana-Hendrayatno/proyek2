@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Murid;
+use Illuminate\Support\Facades\Hash;
 use File;
 
 class MuridController extends Controller
@@ -29,12 +30,9 @@ class MuridController extends Controller
      */
     public function create()
     {
-        // = SELECT * FROM murid;
-        $data = [
-        "data_murid" => Murid::all()
-     ];
+        // = SELECT * FROM murid;  
  
-    return view("/admin/murid/addmurid/index", $data);
+        return view("/admin/murid/addmurid/index", $data);
     }
 
     /**
@@ -51,6 +49,7 @@ class MuridController extends Controller
         $fileName = $foto->getClientOriginalName();
         $request->file("foto_murid")->move("image", $fileName);
 
+        $simpan->password = bcrypt($request->password);
         $simpan->foto_murid = $fileName;
         $simpan->save();
 
@@ -80,7 +79,7 @@ class MuridController extends Controller
         "edit" => Murid::where("id", $id)->first()
     ];
     
-    return view("/admin/murid/edit_pelatih", $data);
+    return view("/admin/murid/edit_murid", $data);
     
 }
 
@@ -95,6 +94,9 @@ class MuridController extends Controller
     {
         $update = Murid::where("id", $request->id)->first();
 
+        $update->role = $request->role;
+        $update->email = $request->email;
+        $update->password = bcrypt($request->password);
         $update->nama_murid = $request->nama_murid;
         $update->umur = $request->umur;
         $update->gender_murid = $request->gender_murid;

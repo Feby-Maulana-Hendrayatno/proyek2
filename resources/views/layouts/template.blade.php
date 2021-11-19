@@ -158,22 +158,18 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Forms
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
-          <br>
           <li class="nav-item">
             <a href="forms" class="nav-link">
             <i class="fas fa-book"></i>
-              <i class="nav-icon fas fa-kategori"></i>
+              <i class="nav-icon"></i>
               <p>
                 Kategori
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
-          <br>
           <li class="nav-header">Transaksi</li>
           <li class="nav-item">
             <a href="/murid" class="nav-link">
@@ -194,7 +190,7 @@
           </li>
           <li class="nav-item">
             <a href="/logout" class="nav-link">
-              <i class="fas fa-logout"></i>
+            <i class="fas fa-sign-out-alt"></i>
               <p>
                 Logout
               </p>
@@ -279,7 +275,7 @@
 <!-- AdminLTE App -->
 <script src="/template/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/template/dist/js/demo.js"></script>
+<!-- <script src="/template/dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/template/dist/js/pages/dashboard.js"></script>
 <script src="/template/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -294,6 +290,10 @@
 <script src="/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+@yield("alerts")
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable({

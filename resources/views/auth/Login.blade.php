@@ -10,33 +10,6 @@
   <title>Document</title>
 </head>
 <body>
-    <!-- <>
-    
-        <table>
-            <tr>
-                <td>Email</td>
-                <td>:</td>
-                <td>
-                    <input type="email" name="email">
-                </td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td>
-                    <input type="password" name="password">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <button type="submit">
-                    Login
-                </button>
-                </td>
-            </tr>
-        </table>
-    </>
-    () -->
     <div class="overlay">
       <form method="POST" action="/post_login">
       {{ csrf_field() }}

@@ -20,7 +20,7 @@ class PelatihController extends Controller
             "data_pelatih" => Pelatih::all()
         ];
 
-        return view("/admin/index", $data);
+        return view("/admin/pelatih", $data);
     }
 
     /**
@@ -53,7 +53,7 @@ class PelatihController extends Controller
         $foto = $request->file("foto_pelatih");
         $fileName = $foto->getClientOriginalName();
         $request->file("foto_pelatih")->move("image", $fileName);
-
+        $simpan->password = bcrypt($request->password);
         $simpan->foto_pelatih = $fileName;
         $simpan->save();
 
@@ -98,9 +98,11 @@ class PelatihController extends Controller
     {
         $update = Pelatih::where("id", $request->id)->first();
 
+        $update->role = $request->role;
         $update->nama_pelatih = $request->nama_pelatih;
         $update->jenis_tari = $request->jenis_tari;
         $update->no_hp = $request->no_hp;
+        $update->password = bcrypt($request->password);
         $update->alamat_pelatih = $request->alamat_pelatih;
         $update->gender_pelatih = $request->gender_pelatih;
         
