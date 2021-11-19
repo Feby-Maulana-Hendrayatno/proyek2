@@ -9,7 +9,7 @@ class Murid extends Model
 {
     use HasFactory;
 
-    protected $table = "tbl_murid";
+    protected $table = "murid";
 
     protected $guarded = [''];
 
