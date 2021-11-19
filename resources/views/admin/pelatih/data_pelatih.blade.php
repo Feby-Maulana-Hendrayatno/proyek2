@@ -55,7 +55,7 @@
 									<img src="image/{{ $dp->foto }}" width="150" height="100">
 								</td>
                                 <td>
-									<a href="/admin/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
+									<a href="/admin/pelatih/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
 									<a href="/admin/pelatih/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
 										Hapus
 									</a>

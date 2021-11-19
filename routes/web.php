@@ -89,9 +89,8 @@ Route::prefix("admin")->group(function() {
         Route::get("/", [PelatihController::class, "index"]);
         Route::post("/store", [PelatihController::class, "store"]);
         Route::get("/tambah_data", [PelatihController::class, "tambah_data"]);
-        Route::get("/destroy", [PelatihController::class, "destroy"]);
+        Route::get("/edit/{id}", [PelatihController::class, "edit"]);
+        Route::get("/hapus/{id}/", [PelatihController::class, "destroy"]);
     });
 
 });
-
-Route::get("/admin", [RoleController::class, "dashboard"] )->middleware('admin');

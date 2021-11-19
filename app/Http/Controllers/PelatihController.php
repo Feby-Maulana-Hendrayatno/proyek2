@@ -102,13 +102,12 @@ class PelatihController extends Controller
     {
         $update = Pelatih::where("id", $request->id)->first();
 
-        $update->role = $request->role;
         $update->nama_pelatih = $request->nama_pelatih;
         $update->jenis_tari = $request->jenis_tari;
         $update->no_hp = $request->no_hp;
         $update->password = bcrypt($request->password);
         $update->alamat_pelatih = $request->alamat_pelatih;
-        $update->gender_pelatih = $request->gender_pelatih;
+        $update->jenis_kelamin = $request->jenis_kelamin;
 
         if ($request->file("foto_pelatih") == "") {
 
@@ -137,11 +136,13 @@ class PelatihController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = Pelatih::where("id", $id)->first();
+        $data = Pelatih::where("id", $id)->first();
 
-        File::delete("image/".$hapus->foto);
+        $nama_pelatih = $data->nama_pelatih;
 
         Pelatih::where("id", $id)->delete();
+
+        User::where("name", $nama_pelatih)->delete();
 
         return redirect()->back();
     }

@@ -11,7 +11,7 @@
 						<h3 class="card-title">
 							<span class="btn btn-secondary col fileinput-button dz-clickable">
                                 <i class="fa fa-reply"></i>
-								<span >Data Pelatih</span>
+								<span >Edit Data Pelatih</span>
 							</span>
 						</h3>
 					</a>
@@ -22,33 +22,21 @@
                         <input type="hidden" name="id" value="{{ $edit->id }}">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Role</label>
-                                <input type="" name="role" class="form-control" id="" placeholder="Masukan Role" required value="{{ $edit->role }}">
-                            </div>
-                            <div class="form-group">
                                 <label>Nama Pelatih</label>
                                 <input type="" name="nama_pelatih" class="form-control" id="" placeholder="Masukan Nama" required value="{{ $edit->nama_pelatih }}">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="" name="email" class="form-control" id="" placeholder="Masukan Email" required value="{{ $edit->email }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="" name="password" class="form-control" id="" placeholder="Password" required >
-                            </div>
-                            <div class="form-group">
                                 <label>Jenis Kelamin</label>
                                 <br>
-                                @if($edit->gender_pelatih == "Laki-laki")
-                                <input type="radio" name="gender_pelatih" value="Laki-laki" checked> Laki-laki
-                                <input type="radio" name="gender_pelatih" value="Perempuan"> Perempuan
-                                @elseif($edit->gender_pelatih == "Perempuan")
-                                <input type="radio" name="gender_pelatih" value="Laki-laki"> Laki-laki
-                                <input type="radio" name="gender_pelatih" value="Perempuan" checked> Perempuan
+                                @if($edit->jenis_kelamin == "Laki-laki")
+                                <input type="radio" name="jenis_kelamin" value="Laki-laki" checked> Laki-laki
+                                <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                                @elseif($edit->jenis_kelamin == "Perempuan")
+                                <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
+                                <input type="radio" name="jenis_kelamin" value="Perempuan" checked> Perempuan
                                 @else
-                                <input type="radio" name="gender_pelatih" value="Laki-laki"> Laki-laki
-                                <input type="radio" name="gender_pelatih" value="Perempuan"> Perempuan
+                                <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
+                                <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                                 @endif
                             </div>
                             <div class="form-group">
@@ -61,15 +49,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="" name="alamat_pelatih" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
+                                <input type="" name="alamat" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
                             </div>
                             <div class="form-group">
                                 <label for=""> Gambar </label> <br>
-                                <img src="/image/{{ $edit->foto_pelatih }}" width="300">
+                                <img src="/image/{{ $edit->foto }}" width="300">
                             </div>
                             <div class="form-group">
                                 <label>Foto Pelatih</label>
-                                <input type="file" class="form-control" name="foto_pelatih" id="" placeholder="Masukan Foto/Gambar">
+                                <input type="file" class="form-control" name="foto" id="" placeholder="Masukan Foto/Gambar">
                             </div>
                             <br>
                             <div>
