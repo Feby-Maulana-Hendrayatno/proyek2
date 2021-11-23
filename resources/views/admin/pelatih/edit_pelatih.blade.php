@@ -17,7 +17,7 @@
 					</a>
 				</div>
                 <div class="card-body">
-                    <form method="POST" action="/pelatih/update" enctype="multipart/form-data">
+                    <form method="POST" action="/admin/pelatih/update" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $edit->id }}">
                         <div class="card-body">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="" name="alamat" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
+                                <input type="" name="alamat" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat }}">
                             </div>
                             <div class="form-group">
                                 <label for=""> Gambar </label> <br>

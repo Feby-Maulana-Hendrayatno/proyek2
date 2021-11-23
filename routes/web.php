@@ -47,25 +47,20 @@ Route::get('/murid', function () {
     return view('/admin/murid');
 })->middleware('admin');
 
-Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
-Route::delete('{pelatih}/delete','PelatiCotroller@destroy')->name('pelatih.destroy')->middleware('admin');
+// Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
+// Route::delete('{pelatih}/delete','PelatiCotroller@destroy')->name('pelatih.destroy')->middleware('admin');
 
 
-//Data Murid
-Route::get('/murid', [MuridController::class, 'index'])->middleware('admin');
-Route::get("/murid/edit/{id}", [MuridController::class, 'edit'])->middleware('admin');
-Route::get('/murid/hapus/{id}', [MuridController::class, 'destroy'])->middleware('admin');
-Route::post('/murid/update', [MuridController::class, 'update'])->middleware('admin');
+// Route::get('murid/addmurid', function () {
 
-Route::post('murid/add', [MuridController::class, 'store'])->middleware('admin');
+//     return view('/admin/murid/addmurid');
+// })->middleware('admin');
 
-Route::get('murid/addmurid', function () {
+// Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
+// Route::delete('{murid}/delete','MuridCotroller@destroy')->name('murid.destroy')->middleware('admin');
 
-    return view('/admin/murid/addmurid');
-})->middleware('admin');
 
-Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
-Route::delete('{murid}/delete','MuridCotroller@destroy')->name('murid.destroy')->middleware('admin');
+
 
 // kalendar
 Route::get('full-calender', [FullCalenderController::class, 'index']);
@@ -91,6 +86,16 @@ Route::prefix("admin")->group(function() {
         Route::get("/tambah_data", [PelatihController::class, "tambah_data"]);
         Route::get("/edit/{id}", [PelatihController::class, "edit"]);
         Route::get("/hapus/{id}/", [PelatihController::class, "destroy"]);
+        Route::post("/update", [PelatihController::class, "update"]);
+    });
+
+    Route::prefix("murid")->group(function() {
+        Route::get("/", [MuridController::class, "index"]);
+        Route::post("/store", [MuridController::class, "store"]);
+        Route::get("/tambah_data", [MuridController::class, "tambah_data"]);
+        Route::get("/edit/{id}", [MuridController::class, "edit"]);
+        Route::get("/hapus/{id}/", [MuridController::class, "destroy"]);
+        Route::post("/update", [MuridController::class, "update"]);
     });
 
 });

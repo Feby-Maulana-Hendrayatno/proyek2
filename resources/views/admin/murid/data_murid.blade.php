@@ -29,7 +29,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					<a href="/murid/addmurid"> 
+					<a href="{{ url('/admin/murid/tambah_data') }}"> 
 						<h3 class="card-title">
 							<span class="btn btn-success col fileinput-button dz-clickable">
 								<i class="fas fa-plus"></i>
@@ -43,12 +43,9 @@
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Role</th>
 								<th>Nama</th>
-								<th>Email</th>
-								<th>Password</th>
 								<th>Umur</th>
-								<th>Gender</th>
+								<th>Jenis Kelamin</th>
 								<th>No HP</th>
 								<th>Alamat</th>
 								<th>Foto</th>
@@ -60,20 +57,17 @@
 							@foreach($data_murid as $dp)
 							<tr>
 								<td>{{ ++$no }}</td>
-								<td>{{ $dp->role }}</td>
 								<td>{{ $dp->nama_murid }}</td>
-								<td>{{ $dp->email }}</td>
-								<td>{{ $dp->password }}</td>
 								<td>{{ $dp->umur }}</td>
-								<td>{{ $dp->gender_murid }}</td>
+								<td>{{ $dp->jenis_kelamin }}</td>
 								<td>{{ $dp->no_hp }}</td>
-								<td>{{ $dp->alamat_murid }}</td>
+								<td>{{ $dp->alamat }}</td>
 								<td>
-									<img src="image/{{ $dp->foto_murid }}" alt="" width="90" height="100">
+									<img src="image/{{ $dp->foto }}" alt="" width="90" height="100">
 								</td>
 								<td>
-									<a href="/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>
-									<a href="/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');"></i><i class="fas fa-trash"></i></a>
+									<a href="/admin/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>
+									<a href="/admin/murid/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');"></i><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 							@endforeach

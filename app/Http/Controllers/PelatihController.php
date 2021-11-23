@@ -59,20 +59,9 @@ class PelatihController extends Controller
             "email" => $request->nama_pelatih."@gmail.com",
             "password" => bcrypt("pelatih"),
             "id_role" => 2
-        ]);
+        ]); 
 
         return redirect("/admin/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -86,6 +75,8 @@ class PelatihController extends Controller
         $data = [
             "edit" => Pelatih::where("id", $id)->first()
         ];
+
+        
 
         return view("/admin/pelatih/edit_pelatih", $data);
 
@@ -103,29 +94,28 @@ class PelatihController extends Controller
         $update = Pelatih::where("id", $request->id)->first();
 
         $update->nama_pelatih = $request->nama_pelatih;
+        $update->jenis_kelamin = $request->jenis_kelamin;   
         $update->jenis_tari = $request->jenis_tari;
         $update->no_hp = $request->no_hp;
-        $update->password = bcrypt($request->password);
-        $update->alamat_pelatih = $request->alamat_pelatih;
-        $update->jenis_kelamin = $request->jenis_kelamin;
+        $update->alamat = $request->alamat;
 
-        if ($request->file("foto_pelatih") == "") {
+        if ($request->file("foto") == "") {
 
-            $update->foto_pelatih = $update->foto_pelatih;
+            $update->foto = $update->foto;
 
         } else {
 
-            File::delete("image/".$update->foto_pelatih);
+            File::delete("image/".$update->foto);
 
-            $file = $request->file("foto_pelatih");
+            $file = $request->file("foto");
             $fileName = $file->getClientOriginalName();
-            $request->file("foto_pelatih")->move("image", $fileName);
+            $request->file("foto")->move("image", $fileName);
             $update->foto_pelatih = $fileName;
         }
 
         $update->update();
 
-        return redirect("/pelatih")->with("update", "Data Berhasil di update");
+        return redirect("/admin/pelatih")->with("update", "Data Berhasil di update");
     }
 
     /**

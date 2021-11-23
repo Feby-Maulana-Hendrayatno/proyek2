@@ -1,5 +1,27 @@
 @extends("layouts.template")
 
+@section("alerts")
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session("tambah_data"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Tambahkan',
+			'',
+			'success'
+			)
+		</script>
+		@elseif(session("update"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Update',
+			'',
+			'success'
+			)
+		</script>
+	@endif
+@stop
+
 @section("content")
 
 <div class="container-fluid">
@@ -32,10 +54,10 @@
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Nama Pelatih</th>
+								<th>Nama</th>
 								<th>Jenis Kelamin</th>
 								<th>Jenis Tari</th>
-								<th>Nomer Handphone</th>
+								<th>Nomer HP</th>
 								<th>Alamat</th>
 								<th>Foto</th>
 								<th>Aksi</th>
@@ -54,11 +76,9 @@
 								<td>
 									<img src="image/{{ $dp->foto }}" width="150" height="100">
 								</td>
-                                <td>
-									<a href="/admin/pelatih/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
-									<a href="/admin/pelatih/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-										Hapus
-									</a>
+								<td>
+									<a href="/admin/pelatih/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>
+									<a href="/admin/pelatih/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');"></i><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 							@endforeach
