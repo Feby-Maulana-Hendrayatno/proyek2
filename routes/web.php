@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\KategoriTariController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,18 @@ use App\Http\Controllers\AkunController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/admin/dashboard');
 });
 
 Route::get("/layouts", function() {
-	return view("/layouts/template");
+    return view("/layouts/template");
 });
 
 Route::get('/dashboard', function () {
     return view('/admin/dashboard');
 })->middleware('admin');
+
+
 
 // login adminController
 Route::get('/logout', [loginController::class, "logout"]);
@@ -47,17 +50,6 @@ Route::get('/murid', function () {
     return view('/admin/murid');
 })->middleware('admin');
 
-// Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
-// Route::delete('{pelatih}/delete','PelatiCotroller@destroy')->name('pelatih.destroy')->middleware('admin');
-
-
-// Route::get('murid/addmurid', function () {
-
-//     return view('/admin/murid/addmurid');
-// })->middleware('admin');
-
-// Route::get("/admin", [AdminController::class, "dashboard"] )->middleware('admin');
-// Route::delete('{murid}/delete','MuridCotroller@destroy')->name('murid.destroy')->middleware('admin');
 
 
 
@@ -67,10 +59,6 @@ Route::get('full-calender', [FullCalenderController::class, 'index']);
 Route::post('full-calender/action', [FullCalenderController::class, 'action']);
 
 Route::prefix("admin")->group(function() {
-
-    Route::prefix("users")->group(function() {
-        Route::get("/", [AkunController::class, "index"]);
-    });
 
     Route::prefix("role")->group(function() {
         Route::get("/", [RoleController::class, "index"]);
@@ -96,6 +84,25 @@ Route::prefix("admin")->group(function() {
         Route::get("/edit/{id}", [MuridController::class, "edit"]);
         Route::get("/hapus/{id}/", [MuridController::class, "destroy"]);
         Route::post("/update", [MuridController::class, "update"]);
+    });
+
+});
+
+
+
+
+
+
+
+
+Route::prefix("pelatih")->group(function() {
+
+    Route::prefix("kategori_tari")->group(function() {
+        Route::get("/", [KategoriTariController::class, "index"]);
+        Route::post("/tambah/", [KategoriTariController::class, "tambah"]);
+        Route::post("/hapus", [KategoriTariController::class, "hapus"]);
+        Route::get("/edit/{id_role}", [KategoriTariController::class, "edit"]);
+        Route::post("/simpan", [KategoriTariController::class, "simpan"]);
     });
 
 });

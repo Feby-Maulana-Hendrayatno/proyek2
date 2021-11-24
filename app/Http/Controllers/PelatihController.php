@@ -58,7 +58,7 @@ class PelatihController extends Controller
             "name" => $request->nama_pelatih,
             "email" => $request->nama_pelatih."@gmail.com",
             "password" => bcrypt("pelatih"),
-            "id_role" => 2
+            "id_role" => 1
         ]); 
 
         return redirect("/admin/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
