@@ -44,7 +44,7 @@
               </div>
               <div class="form-group">
                 <label>Foto</label>
-                <input type="file" class="form-control" name="foto(" id="" placeholder="Masukan Foto/Gambar">
+                <input type="file" class="form-control" name="foto" id="" placeholder="Masukan Foto/Gambar">
               </div>
               <br>
               <div>

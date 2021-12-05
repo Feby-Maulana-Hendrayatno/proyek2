@@ -9,9 +9,8 @@
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
-          <h3>150</h3>
-
-          <p>New Orders</p>
+          <h3>{{ $jumlah_pelatih }}</h3>
+          <p>Jumlah Pelatih</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -24,9 +23,8 @@
       <!-- small box -->
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-          <p>Bounce Rate</p>
+          <h3>{{ $jumlah_murid}}</h3>
+          <p>Jumlah Murid</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
@@ -39,8 +37,7 @@
       <!-- small box -->
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>44</h3>
-
+          <h3>{{ $jumlah_kategori_tari}}</h3>
           <p>User Registrations</p>
         </div>
         <div class="icon">

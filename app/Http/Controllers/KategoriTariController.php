@@ -34,7 +34,7 @@ class KategoriTariController extends Controller
     {
         $data = [
             "edit" => KategoriTari::where("id", $id)->first(),
-            "data_role" => KategoriTari::where("id", "!=", $id)->orderBy("nama_kategori_tari", "ASC")->get()
+            "data_kategori_tari" => KategoriTari::where("id", "!=", $id)->orderBy("nama_kategori_tari", "ASC")->get()
         ];
 
         return view("/pelatih/kategori_tari/edit_kategori_tari", $data);

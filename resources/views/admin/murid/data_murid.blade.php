@@ -63,7 +63,7 @@
 								<td>{{ $dp->no_hp }}</td>
 								<td>{{ $dp->alamat }}</td>
 								<td>
-									<img src="image/{{ $dp->foto }}" alt="" width="90" height="100">
+									<img src="/image/{{ $dp->foto }}" alt="" width="90" height="100">
 								</td>
 								<td>
 									<a href="/admin/murid/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"></i><i class="fas fa-edit"></i></a>

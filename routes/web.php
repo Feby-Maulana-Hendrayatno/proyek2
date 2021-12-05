@@ -9,6 +9,8 @@ use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\KategoriTariController;
+use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\AbsenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +22,12 @@ use App\Http\Controllers\KategoriTariController;
 |
 */
 
+
 Route::get('/', function () {
     return view('/admin/dashboard');
 });
+
+Route::get('/', [AdminController::class, "dashboard"]);
 
 Route::get("/layouts", function() {
     return view("/layouts/template");
@@ -86,6 +91,15 @@ Route::prefix("admin")->group(function() {
         Route::post("/update", [MuridController::class, "update"]);
     });
 
+    Route::prefix("users")->group(function() {
+        Route::get("/", [AkunController::class, "index"]);
+        Route::post("/tambah/", [AkunController::class, "tambah"]);
+        Route::post("/hapus", [AkunController::class, "hapus"]);
+        Route::get("/edit/{id_role}", [AkunController::class, "edit"]);
+        Route::post("/simpan", [AkunController::class, "simpan"]);
+    });
+
+
 });
 
 
@@ -105,4 +119,24 @@ Route::prefix("pelatih")->group(function() {
         Route::post("/simpan", [KategoriTariController::class, "simpan"]);
     });
 
+    Route::prefix("nilai")->group(function() {
+        Route::get("/", [NilaiController::class, "index"]);
+        Route::post("/tambah/", [NilaiController::class, "tambah"]);
+        Route::post("/hapus", [NilaiController::class, "hapus"]);
+        Route::get("/edit/{id}", [NilaiController::class, "edit"]);
+        Route::post("/simpan", [NilaiController::class, "simpan"]);
+    });
+
+    Route::prefix("absen")->group(function() {
+        Route::get("/", [AbsenController::class, "index"]);
+        Route::post("/tambah/", [AbsenController::class, "tambah"]);
+        Route::post("/hapus", [AbsenController::class, "hapus"]);
+        Route::get("/edit/{id}", [AbsenController::class, "edit"]);
+        Route::post("/simpan", [AbsenController::class, "simpan"]);
+    });
+
 });
+
+
+
+

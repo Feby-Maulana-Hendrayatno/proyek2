@@ -10,10 +10,10 @@ class RoleController extends Controller
     public function index()
     {
         $data = [
-            "data_kategori_tari" => Role::orderBy("nama_kategori_tari", "ASC")->get()
+            "data_role" => Role::orderBy("nama_role", "ASC")->get()
         ];
 
-        return view("/admin/kategori_tari/data_kategori_tari", $data);
+        return view("/admin/role/data_role", $data);
     }
 
     public function tambah(Request $request)
@@ -25,28 +25,28 @@ class RoleController extends Controller
 
     public function hapus(Request $request)
     {
-        Role::where("id", $request->id)->delete();
+        Role::where("id_role", $request->id_role)->delete();
 
         return redirect()->back();
     }
 
-    public function edit($id)
+    public function edit($id_role)
     {
         $data = [
-            "edit" => Role::where("id", $id)->first(),
-            "data_role" => Role::where("id", "!=", $id)->orderBy("nama_kategori_tari", "ASC")->get()
+            "edit" => Role::where("id_role", $id_role)->first(),
+            "data_role" => Role::where("id_role", "!=", $id_role)->orderBy("nama_role", "ASC")->get()
         ];
 
-        return view("/pelatih/kategori_tari/edit_kategori_tari", $data);
+        return view("/admin/role/edit_role", $data);
     }
 
     public function simpan(Request $request)
     {
-        Role::where("id", $request->id)->update([
-            "nama_kategori_tari" => $request->nama_kategori_tari
+        Role::where("id_role", $request->id_role)->update([
+            "nama_role" => $request->nama_role
         ]);
 
-        return redirect("/pelatih/kategori_tari");
+        return redirect("/admin/role");
     }
 }
     

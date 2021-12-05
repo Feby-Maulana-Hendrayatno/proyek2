@@ -56,8 +56,8 @@
 								<th>No.</th>
 								<th>Nama</th>
 								<th>Jenis Kelamin</th>
-								<th>Jenis Tari</th>
-								<th>Nomer HP</th>
+								<th>Tari</th>
+								<th>No HP</th>
 								<th>Alamat</th>
 								<th>Foto</th>
 								<th>Aksi</th>

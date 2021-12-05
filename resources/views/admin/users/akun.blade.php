@@ -2,41 +2,91 @@
 
 @section("content")
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header">
-					<a href="/role/addrole">
-						<h3 class="card-title">
-							<span class="btn btn-success col fileinput-button dz-clickable">
-								<i class="fas fa-plus"></i>
-								<span>Role</span>
-							</span>
-						</h3>
-					</a>
-				</div>
-				<div class="card-body">
-					<table id="example1" class="table table-bordered table-striped">
-						<thead>
+<div class="row">
+    <div class="col-md-4">
+        <form method="POST" action="{{ url('/admin/users/tambah/') }}">
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="fa fa-plus"></span> Tambah Data
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name" >Akun</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Passwords">
+                    </div>
+                    <div hidden >
+                        <label for="id_role">Id Role</label>
+                        <input type="text" class="form-control" id="id_role" name="id_role" value="3">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info btn-sm">
+                        <span class="fa fa-plus"></span>
+                        Tambah
+                    </button>
+                    <button type="reset" class="btn btn-default btn-sm float-right">
+                        <span class="fa fa-refresh"></span>
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Data Role
+                </h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Nama Akun</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+							@php $no = 0 @endphp
+							@foreach($data_akun as $akun)
 							<tr>
-								<th>No</th>
-								<th> Nama Role</th>
-								<th>Aksi</th>
+								<td>{{ ++$no }}</td>
+								<td>{{ $akun->name }}</td>
+								<td>{{ $akun->email }}</td>
+								<td>
+                                    <a href="{{ url('/admin/users/edit') }}/{{ $akun->id }}" class="btn btn-warning btn-sm">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                    <form method="POST" action="{{ url('/admin/users/hapus') }}" style="display: inline;">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value="{{ $akun->id }}">
+                                        <button onclick="return confirm('Ingin di Hapus ?')" type="submit" class="btn btn-danger btn-sm">
+                                            <span class="fa fa-trash"></span>
+                                        </button>
+                                    </form>
+                                </td>
 							</tr>
-						</thead>
-						<tbody>
-                            @php $no = 0 @endphp
-                            @foreach($data_akun as $akun)
-                                <tr>
-
-                                </tr>
-                            @endforeach
-                        </tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+							@endforeach
+						</tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
 @endsection

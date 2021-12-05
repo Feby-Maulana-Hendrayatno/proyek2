@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form method="POST" action="{{ url('/pelatih/kategori_tari/tambah/') }}">
+        <form method="POST" action="{{ url('/pelatih/nilai/tambah/') }}">
             {{ csrf_field() }}
             <div class="card card-info">
                 <div class="card-header">
@@ -13,11 +13,31 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div class="form-group row">
-                        <label for="nama_kategori_tari" class="col-sm-2 col-form-label">Tari</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_kategori_tari" name="nama_kategori_tari" placeholder="Kategori Tari">
-                        </div>
+                    <div class="form-group">
+                        <label for="nama_murid" >Nama</label>
+                        <select name="nama_murid" id="nama_murid" class="form-control">
+                        <option > - Nama Murid - </option>
+                        @foreach ($data_murid as $murid)
+                            <option value="{{ $murid->id }}">
+                                {{ $murid->nama_murid }}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jenis_tari" >Nama</label>
+                        <select name="jenis_tari" id="jenis_tari" class="form-control">
+                        <option > - Jenis Tari - </option>
+                        @foreach ($data_kategori_tari as $tari)
+                            <option value="{{ $tari->id }}">
+                                {{ $tari->nama_kategori_tari }}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nilai" >Nilai</label>
+                            <input type="text" class="form-control" id="nilai" name="nilai" placeholder="Nilai">
                     </div>
                 </div>
                 <div class="card-footer">
@@ -41,27 +61,31 @@
                 </h3>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Kategori Tari</th>
+                            <th class="text-center">Nama</th>
+                            <th class="text-center">Jenis Tari</th>
+                            <th class="text-center">Nilai</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $no = 0 @endphp
-                        @foreach($data_kategori_tari as $tari)
+                        @foreach($data_nilai as $nilai)
                         <tr>
                             <td class="text-center">{{ ++$no }}.</td>
-                            <td class="text-center">{{ $tari->nama_kategori_tari }}</td>
+                            <td class="text-center">{{ $nilai->nama_murid }}</td>
+                            <td class="text-center">{{ $nilai->jenis_tari }}</td>
+                            <td class="text-center">{{ $nilai->nilai }}</td>
                             <td class="text-center">
-                                <a href="{{ url('/pelatih/kategori_tari/edit') }}/{{ $tari->id }}" class="btn btn-warning btn-sm">
+                                <a href="{{ url('/pelatih/nilai/edit') }}/{{ $nilai->id }}" class="btn btn-warning btn-sm">
                                     <span class="fa fa-edit"></span>
                                 </a>
-                                <form method="POST" action="{{ url('/pelatih/kategori_tari/hapus') }}" style="display: inline;">
+                                <form method="POST" action="{{ url('/pelatih/nilai/hapus') }}" style="display: inline;">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="id" value="{{ $tari->id }}">
+                                    <input type="hidden" name="id" value="{{ $nilai->id }}">
                                     <button onclick="return confirm('Ingin di Hapus ?')" type="submit" class="btn btn-danger btn-sm">
                                         <span class="fa fa-trash"></span>
                                     </button>

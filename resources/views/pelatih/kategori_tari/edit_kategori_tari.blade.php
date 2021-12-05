@@ -52,7 +52,7 @@
                     </thead>
                     <tbody>
                         @php $no = 0 @endphp
-                        @foreach($data_role as $role)
+                        @foreach($data_kategori_tari as $role)
                         <tr>
                             <td class="text-center">{{ ++$no }}.</td>
                             <td class="text-center">{{ $role->nama_kategori_tari }}</td>
@@ -76,5 +76,4 @@
         </div>
     </div>
 </div>
-
 @endsection

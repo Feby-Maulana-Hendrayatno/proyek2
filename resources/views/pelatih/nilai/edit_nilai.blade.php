@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form method="POST" action="{{ url('/admin/users/simpan/') }}">
+        <form method="POST" action="{{ url('/pelatih/nilai/simpan/') }}" >
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $edit->id }}">
             <div class="card card-info">
@@ -14,22 +14,12 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div  class="form-group">
-                        <label for="name" >Nama</label>
-                        <input type="text" class="form-control" id="name" name="name"  value="{{ $edit->name }}">
+                    <div class="form-group row">
+                        <label for="nama_role" class="col-sm-2 col-form-label">Tari</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nama_kategori_tari" name="nama_kategori_tari" placeholder="Kategori Tari" value="{{ $edit->nama_kategori_tari }}">
+                        </div>
                     </div>
-                    <div  class="form-group">
-                        <label for="email" >Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="{{ $edit->email }}">
-                    </div>
-                    <div  class="form-group">
-                        <label for="password" >Password</label>
-                        <input type="text" class="form-control" id="password" name="password" >
-                    </div>
-                    <div  class="form-group">
-                        <label for="id_role" >Role</label>
-                        <input type="number" class="form-control" id="id_role" name="id_role" value="{{ $edit->id_role }}">
-                    </div> 
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info btn-sm">
@@ -48,33 +38,31 @@
         <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Data Role
+                    Data Tari
                 </h3>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Nama</th>
-                            <th class="text-center">Email</th>
+                            <th class="text-center">Tari</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $no = 0 @endphp
-                        @foreach($data_akun as $akun)
+                        @foreach($data_role as $role)
                         <tr>
-                            <td class="text-center">{{ ++$no }}</td>
-                            <td class="text-center">{{ $akun->name }}</td>
-                            <td class="text-center">{{ $akun->email }}</td>
+                            <td class="text-center">{{ ++$no }}.</td>
+                            <td class="text-center">{{ $role->nama_kategori_tari }}</td>
                             <td class="text-center">
-                                <a href="{{ url('/admin/users/edit') }}/{{ $akun->id }}" class="btn btn-warning btn-sm">
+                                <a href="{{ url('/pelatih/kategori_tari/edit') }}/{{ $role->id }}" class="btn btn-warning btn-sm">
                                     <span class="fa fa-edit"></span>
                                 </a>
-                                <form method="POST" action="{{ url('/admin/users/hapus') }}" style="display: inline;">
+                                <form method="POST" action="{{ url('/pelatih/kategori_tari/hapus') }}" style="display: inline;">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="id" value="{{ $akun->id }}">
+                                    <input type="hidden" name="id" value="{{ $role->id }}">
                                     <button onclick="return confirm('Ingin di Hapus ?')" type="submit" class="btn btn-danger btn-sm">
                                         <span class="fa fa-trash"></span>
                                     </button>

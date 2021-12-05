@@ -15,6 +15,7 @@ class CreateMuridTable extends Migration
     {
         Schema::create('murid', function (Blueprint $table) {
             $table->id();
+            $table->string("id_murid", 100)->nullable();
             $table->string("nama_murid", 100)->nullable();
             $table->integer("umur")->nullable();
             $table->string("jenis_kelamin", 20)->nullable();
