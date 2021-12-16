@@ -16,8 +16,8 @@ class CreatePelatihTable extends Migration
         Schema::create('pelatih', function (Blueprint $table) {
             $table->id();
             $table->string("nama_pelatih", 100)->nullable();
-            $table->string("jenis_kelamin", 100)->nullable();
-            $table->string("jenis_tari")->nullable();
+            $table->enum("jenis_kelamin", ["L", "P"]);
+            $table->integer("umur")->nullable();
             $table->string("no_hp", 50)->nullable();
             $table->text("alamat")->nullable();
             $table->string("foto")->nullable();

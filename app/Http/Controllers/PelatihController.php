@@ -52,27 +52,35 @@ class PelatihController extends Controller
      */
     public function store(Request $request)
     {
-        Pelatih::create($request->all());
+    
+        // $this-> message = [
+        //     'nama_pelstih.required' => 'wajib diisi!!',
+        //     'jenis_kelamin.required' => 'wajib diisi!!',
+        //     'no_hp.required' => 'wajib diisi!!',
+        //     'alamat.required' => 'wajib diisi!!',
+        //     'foto.required' => 'wajib diisi!!',
+        // ];
 
+
+        // $this->validate($request, [
+        //     'nama_pelatih' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'no_hp' => 'required',
+        //     'alamat' => 'required',
+        //     'foto' => 'required',
+        //     ], $message);
+
+        Pelatih::create($request->all());
         User::create([
             "name" => $request->nama_pelatih,
             "email" => $request->nama_pelatih."@gmail.com",
             "password" => bcrypt("pelatih"),
-            "id_role" => 2
-        ]);
+            "id_role" => 1
+        ]); 
+
+        
 
         return redirect("/admin/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -85,9 +93,18 @@ class PelatihController extends Controller
     {
         $data = [
             "edit" => Pelatih::where("id", $id)->first()
-        ];
-
+        ];        
         return view("/admin/pelatih/edit_pelatih", $data);
+
+    }
+
+    public function detail($id)
+    {
+        $data = [
+            "detail" => Pelatih::where("id", $id)->first()
+        ];
+        
+        return view("/admin/pelatih/detail_pelatih", $data);
 
     }
 
@@ -102,31 +119,29 @@ class PelatihController extends Controller
     {
         $update = Pelatih::where("id", $request->id)->first();
 
-        $update->role = $request->role;
         $update->nama_pelatih = $request->nama_pelatih;
-        $update->jenis_tari = $request->jenis_tari;
+        $update->jenis_kelamin = $request->jenis_kelamin;
+        $update->umur = $request->umur;
         $update->no_hp = $request->no_hp;
-        $update->password = bcrypt($request->password);
-        $update->alamat_pelatih = $request->alamat_pelatih;
-        $update->gender_pelatih = $request->gender_pelatih;
+        $update->alamat = $request->alamat;
 
-        if ($request->file("foto_pelatih") == "") {
+        if ($request->file("foto") == "") {
 
-            $update->foto_pelatih = $update->foto_pelatih;
+            $update->foto = $update->foto;
 
         } else {
 
-            File::delete("image/".$update->foto_pelatih);
+            File::delete("image/".$update->foto);
 
-            $file = $request->file("foto_pelatih");
+            $file = $request->file("foto");
             $fileName = $file->getClientOriginalName();
-            $request->file("foto_pelatih")->move("image", $fileName);
+            $request->file("foto")->move("image", $fileName);
             $update->foto_pelatih = $fileName;
         }
 
         $update->update();
 
-        return redirect("/pelatih")->with("update", "Data Berhasil di update");
+        return redirect("/admin/pelatih")->with("update", "Data Berhasil di update");
     }
 
     /**
@@ -137,11 +152,13 @@ class PelatihController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = Pelatih::where("id", $id)->first();
+        $data = Pelatih::where("id", $id)->first();
 
-        File::delete("image/".$hapus->foto);
+        $nama_pelatih = $data->nama_pelatih;
 
         Pelatih::where("id", $id)->delete();
+
+        User::where("name", $nama_pelatih)->delete();
 
         return redirect()->back();
     }

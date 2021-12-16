@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+
+use App\Models\KategoriTari;
 
 class KategoriSeeder extends Seeder
 {
@@ -15,13 +16,13 @@ class KategoriSeeder extends Seeder
      */
     public function run()
     {
-    	$faker = Faker::create('id_ID');
+    	$faker = Faker::create("id_ID");
 
-    	for ($i = 1; $i <= 10; $i++) {
-    		DB::table("kategori")->insert([
-        		"nama_kategori" => $faker->name(),
-        		"status" => 1,
-        	]);
+    	for ($i = 1; $i <= 10; $i++)
+    	{
+    		KategoriTari::create([
+    			"nama_kategori_tari" => $faker->jobtitle
+    		]);
     	}
     }
 }

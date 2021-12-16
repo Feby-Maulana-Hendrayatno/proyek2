@@ -1,62 +1,73 @@
 @extends("layouts.template")
 
-@section("content")
+@section("header")
 
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card">
-        <div class="card-header">
-					<a href="/murid"> 
-						<h3 class="card-title">
-							<span class="btn btn-secondary col fileinput-button dz-clickable">
-                <i class="fa fa-reply"></i>
-								<span >Data Murid</span>
-							</span>
-						</h3>
-					</a>
-				</div>
-        <div class="card-body">
-          <form method="POST" action="/murid/add" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <div class="card-body">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="m-0"> Murid </h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/admin/dashboard') }}"> Dashboard </a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="{{ url('/admin/murid/') }}"> Data Murid </a>
+                  </li>
+                  <li class="breadcrumb-item active"> Tambah Data Murid </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        
+        @endsection
+        @section("content")
+        
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <form method="POST" action="{{ url('/admin/murid/store/') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="card-body">
+              <div class="form-group">
+              <label>Nama Murid</label>
+
+              <input type="" name="nama_murid" class="form-control" id="" placeholder="Masukan Nama" required>
+            </div>
             <div class="form-group">
-                <label>Role</label>
-                <input type="" name="role" class="form-control" id="" placeholder="Masukan Role" required>
-              </div>
-              <div class="form-group">
-                <label>Nama Murid</label>
-                <input type="" name="nama_murid" class="form-control" id="" placeholder="Masukan Nama" required>
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" id="" placeholder="Masukan Email" required>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" id="" placeholder="Masukan Password" required>
-              </div>
-              <div class="form-group">
                 <label>umur</label>
                 <input type="number" name="umur" class="form-control" id="" placeholder="Masukan umur anda"  required>
               </div>
+              <div class="card-header">
+                <a href="{{ url('/admin/murid/') }}"> 
+                  <h3 class="card-title">
+                    <span class="btn btn-secondary col fileinput-button dz-clickable">
+                      <i class="fa fa-reply"></i>
+                      <span >Data Murid</span>
+                    </span>
+                  </h3>
+                </a>
+              </div>
               <div class="form-group">
-                <label>Gender&nbsp;
-                <input type="radio" name="gender_murid" value="Laki-laki"> Laki-laki &nbsp;&nbsp;&nbsp;
-                <input type="radio" name="gender_murid" value="Perempuan"> Perempuan
+                <label>Jenis Kelamin&nbsp;
+                <input type="radio" name="jenis_kelamin" value="L" required> Laki-laki &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="jenis_kelamin" value="P" required> Perempuan
                 </label>
               </div>
               <div class="form-group">
                 <label>No HP</label>
-                <input type="text" name="no_hp" class="form-control" id="" placeholder="Nomor Handphone">
+                <input type="text" name="no_hp" class="form-control" id="" placeholder="Nomor Handphone" required>
               </div>
               <div class="form-group">
                 <label>Alamat</label>
-                <input type="" name="alamat_murid" class="form-control" id="" placeholder="Alamat Murid">
+                <input type="" name="alamat" class="form-control" id="" placeholder="Alamat Murid" required>
               </div>
               <div class="form-group">
                 <label>Foto</label>
-                <input type="file" class="form-control" name="foto_murid" id="" placeholder="Masukan Foto/Gambar">
+                <input type="file" class="form-control" name="foto" id="" placeholder="Masukan Foto/Gambar" required>
               </div>
               <br>
               <div>

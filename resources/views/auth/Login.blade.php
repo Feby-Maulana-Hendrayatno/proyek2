@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="overlay">
-      <form method="POST" action="/post_login">
+      <form method="POST" action="/admin/post_login">
       {{ csrf_field() }}
         <div class="con">
         <header class="head-form">

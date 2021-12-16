@@ -17,7 +17,7 @@ class CreateMuridTable extends Migration
             $table->id();
             $table->string("nama_murid", 100)->nullable();
             $table->integer("umur")->nullable();
-            $table->string("jenis_kelamin", 20)->nullable();
+            $table->enum("jenis_kelamin", ["L", "P"]);
             $table->string("no_hp", 50)->nullable();
             $table->text("alamat")->nullable();
             $table->string("foto")->nullable();

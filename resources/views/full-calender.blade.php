@@ -29,7 +29,7 @@ $(document).ready(function () {
         editable:true,
         header:{
             left:'prev,next today',
-            center:'title',
+            center:'title',ca
             right:'month,agendaWeek,agendaDay'
         },
         events:'/full-calender',

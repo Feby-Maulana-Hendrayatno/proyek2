@@ -1,5 +1,51 @@
 @extends("layouts.template")
 
+@section("header")
+
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="m-0"> Pelatih </h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/admin/dashboard') }}"> Dashboard </a>
+                </li>
+                <li class="breadcrumb-item active"> Data Pelatih </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section("alerts")
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session("tambah_data"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Tambahkan',
+			'',
+			'success'
+			)
+		</script>
+		@elseif(session("update"))
+		<script>
+			Swal.fire(
+			'Data Berhasil di Update',
+			'',
+			'success'
+			)
+		</script>
+	@endif
+@stop
+
+@section('title')
+  Data Pelatih
+@stop
+
 @section("content")
 
 <div class="container-fluid">
@@ -31,33 +77,38 @@
 					<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th>No.</th>
-								<th>Nama Pelatih</th>
-								<th>Jenis Kelamin</th>
-								<th>Jenis Tari</th>
-								<th>Nomer Handphone</th>
-								<th>Alamat</th>
-								<th>Foto</th>
-								<th>Aksi</th>
+								<th class="text-center">No.</th>
+								<th>Nama</th>
+								<th class="text-center">Jenis Kelamin</th>
+								<th class="text-center">No HP</th>
+								<th class="text-center">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
 							@php $no = 0 @endphp
 							@foreach($data_pelatih as $dp)
 							<tr>
-								<td>{{ ++$no }}</td>
+								<td class="text-center">{{ ++$no }}</td>
 								<td>{{ $dp->nama_pelatih }}</td>
-								<td>{{ $dp->jenis_kelamin }}</td>
-								<td>{{ $dp->jenis_tari }}</td>
-								<td>{{ $dp->no_hp }}</td>
-								<td>{{ $dp->alamat }}</td>
-								<td>
-									<img src="image/{{ $dp->foto }}" width="150" height="100">
+								<td class="text-center">
+									@if($dp->jenis_kelamin == "L")
+										Laki - Laki
+									@elseif($dp->jenis_kelamin == "P")
+										Perempuan
+									@else
+										Tidak Ada
+									@endif
 								</td>
-                                <td>
-									<a href="/admin/edit/{{ $dp->id }}" class="btn btn-warning btn-sm"> Edit </a>
+								<td class="text-center">{{ $dp->no_hp }}</td>
+								<td class="text-center">
+									<a href="/admin/pelatih/detail/{{ $dp->id }}" class="btn btn-success text-white btn-sm">
+										<i class="fas fa-clipboard"></i> Detail
+									</a>
+									<a href="/admin/pelatih/edit/{{ $dp->id }}" class="btn btn-warning btn-sm">
+										<i class="fas fa-edit"></i> Edit
+									</a>
 									<a href="/admin/pelatih/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-										Hapus
+										<i class="fas fa-trash"></i> Hapus
 									</a>
 								</td>
 							</tr>

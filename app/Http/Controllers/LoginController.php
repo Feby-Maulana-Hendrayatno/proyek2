@@ -20,7 +20,7 @@ class LoginController extends Controller
         ])) {
             $request->session()->regenerate();
 
-            return redirect()->intended("/dashboard");
+            return redirect()->intended("/admin/dashboard");
         }else{
             return redirect()->back();
         }
@@ -31,6 +31,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect("/login");
+        return redirect("/admin/login");
     }
 }
