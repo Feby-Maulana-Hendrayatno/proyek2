@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-					<a href="/pelatih"> 
+					<a href="{{ url('/admin/pelatih/') }}">
 						<h3 class="card-title">
 							<span class="btn btn-secondary col fileinput-button dz-clickable">
                                 <i class="fa fa-reply"></i>
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label>Alamat</label>
                                 <input type="" name="alamat_pelatih" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat_pelatih }}">
-                            </div>  
+                            </div>
                             <div class="form-group">
                                 <label for=""> Gambar </label> <br>
                                 <img src="/image/{{ $edit->foto_pelatih }}" width="300">
@@ -78,7 +78,7 @@
                         </div>
                     </form>
                 </div>
-            </div>		
+            </div>
         </div>
     </div>
 </div>

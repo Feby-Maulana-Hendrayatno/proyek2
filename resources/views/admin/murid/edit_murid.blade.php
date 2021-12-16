@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-					<a href="/murid"> 
+					<a href="/murid">
 						<h3 class="card-title">
 							<span class="btn btn-secondary col fileinput-button dz-clickable">
                                 <i class="fa fa-reply"></i>
@@ -78,7 +78,7 @@
                         </div>
                     </form>
                 </div>
-            </div>		
+            </div>
         </div>
     </div>
 </div>

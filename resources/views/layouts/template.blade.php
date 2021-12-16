@@ -46,7 +46,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars">&nbsp; Aplikasi Pelatihan Sanggar Tari Melati</i></a>
       </li>
     </ul>
-    
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item d-none d-sm-inline-block">
@@ -76,7 +76,7 @@
             </div>
           </form>
         </div>
-      </li>  --}}      
+      </li>  --}}
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -134,67 +134,75 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/pelatih" class="nav-link">
-              <i class="fas fa-chalkboard-teacher"></i>
-              <p>Pelatih</p>
-            </a>
+          <li class="nav-header">
+              Daftar Menu
           </li>
           <li class="nav-item">
-            <a href="/murid" class="nav-link">
-              <i class="fas fa-user-edit"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Data Murid
-                <span class="right badge badge-danger">New</span>
+                Menu
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="forms" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="forms" class="nav-link">
-            <i class="fas fa-book"></i>
-              <i class="nav-icon"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/admin/pelatih/') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pelatih</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/admin/murid/') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Murid</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-header">Transaksi</li>
           <li class="nav-item">
-            <a href="/murid" class="nav-link">
-              <i class="fas fa-money-bill-wave"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Transaksi Penyewaan
-                <span class="right badge badge-danger">New</span>
+                Transaksi
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/layout/top-nav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Transaksi Penyewaan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Transaksi Pelatihan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">Akun</li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/users') }}" class="nav-link">
+                <i class="fa fa-bars"></i>
+                <p>
+                  Users
+                </p>
+              </a>
           </li>
           <li class="nav-item">
-            <a href="/murid" class="nav-link">
-              <i class="fas fa-calendar-plus"></i>
-              <p>
-                Transaksi Pelatihan
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/logout" class="nav-link">
-            <i class="fas fa-sign-out-alt"></i>
-              <p>
-                Logout
-              </p>
-            </a>
+            <a href="{{ url('/admin/role/') }}" class="nav-link">
+                <i class="fa fa-bars"></i>
+                <p>
+                  Role
+                </p>
+              </a>
           </li>
         </ul>
       </nav>
@@ -275,7 +283,7 @@
 <!-- AdminLTE App -->
 <script src="/template/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- <script src="/template/dist/js/demo.js"></script> -->
+<script src="/template/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/template/dist/js/pages/dashboard.js"></script>
 <script src="/template/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -290,10 +298,6 @@
 <script src="/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-@yield("alerts")
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
   $(function () {
     $("#example1").DataTable({

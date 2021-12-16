@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelatih;
 use File;
+use App\Models\User;
 
 class PelatihController extends Controller
 {
@@ -20,7 +21,7 @@ class PelatihController extends Controller
             "data_pelatih" => Pelatih::all()
         ];
 
-        return view("/admin/pelatih", $data);
+        return view("/admin/pelatih/data_pelatih", $data);
     }
 
     /**
@@ -38,7 +39,10 @@ class PelatihController extends Controller
     return view("/admin/pelatih/addpelatih/index", $data);
     }
 
-    
+    public function tambah_data()
+    {
+        return view("/admin/pelatih/addpelatih");
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -48,16 +52,16 @@ class PelatihController extends Controller
      */
     public function store(Request $request)
     {
-        $simpan = Pelatih::create($request->all());
+        Pelatih::create($request->all());
 
-        $foto = $request->file("foto_pelatih");
-        $fileName = $foto->getClientOriginalName();
-        $request->file("foto_pelatih")->move("image", $fileName);
-        $simpan->password = bcrypt($request->password);
-        $simpan->foto_pelatih = $fileName;
-        $simpan->save();
+        User::create([
+            "name" => $request->nama_pelatih,
+            "email" => $request->nama_pelatih."@gmail.com",
+            "password" => bcrypt("pelatih"),
+            "id_role" => 2
+        ]);
 
-        return redirect("/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
+        return redirect("/admin/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
     }
 
     /**
@@ -82,9 +86,9 @@ class PelatihController extends Controller
         $data = [
             "edit" => Pelatih::where("id", $id)->first()
         ];
-        
+
         return view("/admin/pelatih/edit_pelatih", $data);
-        
+
     }
 
     /**
@@ -105,7 +109,7 @@ class PelatihController extends Controller
         $update->password = bcrypt($request->password);
         $update->alamat_pelatih = $request->alamat_pelatih;
         $update->gender_pelatih = $request->gender_pelatih;
-        
+
         if ($request->file("foto_pelatih") == "") {
 
             $update->foto_pelatih = $update->foto_pelatih;
@@ -113,7 +117,7 @@ class PelatihController extends Controller
         } else {
 
             File::delete("image/".$update->foto_pelatih);
-            
+
             $file = $request->file("foto_pelatih");
             $fileName = $file->getClientOriginalName();
             $request->file("foto_pelatih")->move("image", $fileName);
@@ -135,7 +139,7 @@ class PelatihController extends Controller
     {
         $hapus = Pelatih::where("id", $id)->first();
 
-        File::delete("image/".$hapus->foto_pelatih);
+        File::delete("image/".$hapus->foto);
 
         Pelatih::where("id", $id)->delete();
 
