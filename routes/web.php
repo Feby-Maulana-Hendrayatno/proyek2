@@ -77,7 +77,7 @@ Route::group(["middleware" => ["admin"]], function() {
             Route::get("/tambah_data", [PelatihController::class, "tambah_data"]);
             Route::get("/edit/{id}", [PelatihController::class, "edit"]);
             Route::get("/detail/{id}", [PelatihController::class, "detail"]);
-            Route::get("/hapus/{id}/", [PelatihController::class, "destroy"]);
+            Route::post("/hapus/", [PelatihController::class, "destroy"]);
             Route::post("/update", [PelatihController::class, "update"]);
         });
 
@@ -162,10 +162,24 @@ Route::prefix("pelatih")->group(function() {
 
 
 Route::prefix("pengunjung")->group(function() {
+
     Route::prefix("form")->group(function() {
         Route::get("/", [FormController::class, "index"]);
         Route::get("/store", [FormController::class, "store"]);
         Route::post("/tambah/", [FormController::class, "tambah"]);
         Route::post("/hapus", [FormController::class, "hapus"]);
     });
+
+    Route::prefix("event")->group(function() {
+        Route::get("/", [FormController::class, "index"]);
+        Route::get("/store", [FormController::class, "store"]);
+        Route::post("/tambah/", [FormController::class, "tambah"]);
+        Route::post("/hapus", [FormController::class, "hapus"]);
+    });
+
+    Route::prefix("full-calender")->group(function() {
+        Route::get("/", [FullCalenderController::class, "index_pengunjung"]);
+        Route::post("/action", [FullCalenderController::class, "action"]);
+    });
+
 });

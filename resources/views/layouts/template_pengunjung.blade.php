@@ -9,6 +9,10 @@
     <!-- Favicon-->
     @include("layouts.partials_pengunjung.css.style_css")
 
+    
+
+    @yield("ajax_calendar_css")
+
 </head>
 <body id="page-top">
     <!-- Navigation-->
@@ -293,6 +297,11 @@
         </div>
     </div>
     <!-- Bootstrap core JS-->
+    
     @include("layouts.partials_pengunjung.js.style_js")
+
+    
 </body>
 </html>
+
+

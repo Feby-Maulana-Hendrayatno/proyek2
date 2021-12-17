@@ -57,9 +57,9 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{ url('/admin/kategori_tari/') }}" class="nav-link">
+                  <a href="{{ url('/admin/form/') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Kategori Tari</p>
+                    <p>Form Pengunjung</p>
                   </a>
                 </li>
                 <li class="nav-item">

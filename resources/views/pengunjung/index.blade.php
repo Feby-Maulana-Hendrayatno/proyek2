@@ -11,45 +11,45 @@
 </header>
 <!-- Services-->
 <section class="page-section" id="services">
-	<div class="container">
-		<div class="text-center">
-			<h2 class="section-heading text-uppercase">Services</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+<div class="container">
+	<div class="text-center">
+		<h2 class="section-heading text-uppercase">Sanggar Tari Melati Ayu</h2>
+		<h3 class="section-subheading text-muted">Traditional Dance Vibe</h3>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-4">
+			<span class="fa-stack fa-4x">
+				<i class="fas fa-user-clock fa-stack-2x text-primary"></i>
+				<i class="fas fa-user-clock fa-stack-2x text-primary"></i>
+			</span>
+			<h4 class="my-3">Pelatihan</h4>
+			<p class="text-muted">Sanggar tari melati ayu menyediakan jasa pelatihan seni tari tradisional </p>
 		</div>
-		<div class="row text-center">
-			<div class="col-md-4">
-				<span class="fa-stack fa-4x">
-					<i class="fas fa-circle fa-stack-2x text-primary"></i>
-					<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-				</span>
-				<h4 class="my-3">E-Commerce</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
-			<div class="col-md-4">
-				<span class="fa-stack fa-4x">
-					<i class="fas fa-circle fa-stack-2x text-primary"></i>
-					<i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-				</span>
-				<h4 class="my-3">Responsive Design</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
-			<div class="col-md-4">
-				<span class="fa-stack fa-4x">
-					<i class="fas fa-circle fa-stack-2x text-primary"></i>
-					<i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-				</span>
-				<h4 class="my-3">Web Security</h4>
-				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-			</div>
+		<div class="col-md-4">
+			<span class="fa-stack fa-4x">
+				<i class="far fa-handshake fa-stack-2x text-primary"></i>
+				<i class="far fa-handshake fa-stack-2x text-primary"></i>
+			</span>
+			<h4 class="my-3">Event</h4>
+			<p class="text-muted">Selain pelatihan kami menyediakan jasa penari untuk diundang dalam resepsi atau event</p>
+		</div>
+		<div class="col-md-4"> 
+			<span class="fa-stack fa-4x">
+				<i class="fas fa-wallet fa-stack-2x text-primary"></i>
+				<i class="fas fa-wallet fa-stack-2x text-primary"></i>
+			</span>
+			<h4 class="my-3">Pembayaran</h4>
+			<p class="text-muted">Sistem dalam pembayarannya bisa menggunakan Bayar Langsung di tempat atau melalui transfer.</p>
 		</div>
 	</div>
+</div>
 </section>
 <!-- Portfolio Grid-->
 <section class="page-section bg-light" id="portfolio">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="section-heading text-uppercase">Portfolio</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h2 class="section-heading text-uppercase">Kategori</h2>
+			<h3 class="section-subheading text-muted">Traditional Dance Vibe</h3>
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-sm-6 mb-4">
@@ -59,11 +59,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/1.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/bali.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Threads</div>
-						<div class="portfolio-caption-subheading text-muted">Illustration</div>
+						<div class="portfolio-caption-heading">Tari Bali</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Bali</div>
 					</div>
 				</div>
 			</div>
@@ -74,11 +74,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/2.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/dayak.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Explore</div>
-						<div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+						<div class="portfolio-caption-heading">Tari Dayak</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Dayak</div>
 					</div>
 				</div>
 			</div>
@@ -89,11 +89,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/3.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/jaipong.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Finish</div>
-						<div class="portfolio-caption-subheading text-muted">Identity</div>
+						<div class="portfolio-caption-heading">Tari Jaipong</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Jaipong</div>
 					</div>
 				</div>
 			</div>
@@ -104,11 +104,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/4.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/merak2.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Lines</div>
-						<div class="portfolio-caption-subheading text-muted">Branding</div>
+						<div class="portfolio-caption-heading">Tari Merak</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Merak</div>
 					</div>
 				</div>
 			</div>
@@ -119,11 +119,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/5.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/tari piring.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Southwest</div>
-						<div class="portfolio-caption-subheading text-muted">Website Design</div>
+						<div class="portfolio-caption-heading">Tari Piring</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Piring</div>
 					</div>
 				</div>
 			</div>
@@ -134,11 +134,11 @@
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
 						</div>
-						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/6.jpg" alt="..." />
+						<img class="img-fluid" src="{{ url('/landing') }}/assets/img/portfolio/topeng.jpg" alt="..." />
 					</a>
 					<div class="portfolio-caption">
-						<div class="portfolio-caption-heading">Window</div>
-						<div class="portfolio-caption-subheading text-muted">Photography</div>
+						<div class="portfolio-caption-heading">Tari Topeng</div>
+						<div class="portfolio-caption-subheading text-muted">Tari Topeng</div>
 					</div>
 				</div>
 			</div>
@@ -150,55 +150,51 @@
 	<div class="container">
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase">About</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h3 class="section-subheading text-muted">Informasi Tentang Sanggar Tari Melati Ayu</h3>
 		</div>
 		<ul class="timeline">
 			<li>
-				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/1.jpg" alt="..." /></div>
+				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/1.png" alt="..." /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>2009-2011</h4>
-						<h4 class="subheading">Our Humble Beginnings</h4>
+						<h4 class="subheading">Aplikasi Sanggar Tari</h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted">Aplikasi sanggar tari adalah aplikasi yang menangani pengelolaan data murid, pelatih, jadwal, penyewaan,dan transaksi yang ada di dalam sanggar tari. </p></div>
 				</div>
 			</li>
 			<li class="timeline-inverted">
-				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/2.jpg" alt="..." /></div>
+				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/2.png" alt="..." /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>March 2011</h4>
-						<h4 class="subheading">An Agency is Born</h4>
+						<h4 class="subheading">Sumber Data Penelitian</h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted">Sumber data penelitian terdiri dari sumber data primer dan sumber data sekunder, Sumber data primer dilakukan dengan metode wawancara langsung dengan pihak sanggar tari dan juga observasi dokumen dan data secara langsung di Sanggar Tari Melati Ayu yang dilakukan selama 3 (tiga) bulan. Penelitian ini dilakukan dengan tahapan analisis, perancangan, implementasi dan pengujian aplikasi.</p></div>
 				</div>
 			</li>
 			<li>
-				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/3.jpg" alt="..." /></div>
+				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/3.png" alt="..." /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>December 2015</h4>
-						<h4 class="subheading">Transition to Full Service</h4>
+						<h4 class="subheading">Tahap Analisis</h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted">Tahap analisis dilakukan setelah memperoleh data primer yang kemudian dituangkan menjadi proses bisnis yang dituliskan di dalam bentuk narasi dan model flowchart.</p></div>
 				</div>
 			</li>
 			<li class="timeline-inverted">
-				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/4.jpg" alt="..." /></div>
+				<div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ url('/landing') }}/assets/img/about/4.png" alt="..." /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>July 2020</h4>
-						<h4 class="subheading">Phase Two Expansion</h4>
+						<h4 class="subheading">Tahap Perancangan</h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted">Setelah tahap analisis dilanjutkan dengan tahap perancangan data dengan menggunakan model Entity Relationship Diagram (ERD), model aliran data dengan menggunakan Flowchart Diagram dan Kamus Data, setelah itu dirancang juga rancangan antar muka aplikasi. Dari Hasil rancangan dibuatlah aplikasi sanggar tari dengan menggunakan database MySQL, dan bahasa pemrograman PHP. </p></div>
 				</div>
 			</li>
 			<li class="timeline-inverted">
 				<div class="timeline-image">
 					<h4>
-						Be Part
+						Sanggar 
 						<br />
-						Of Our
+						Tari
 						<br />
 						Story!
 					</h4>
@@ -211,46 +207,46 @@
 <section class="page-section bg-light" id="team">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h2 class="section-heading text-uppercase">Kelompok 1</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
 				<div class="team-member">
 					<img class="mx-auto rounded-circle" src="{{ url('/landing') }}/assets/img/team/1.jpg" alt="..." />
-					<h4>Parveen Anand</h4>
-					<p class="text-muted">Lead Designer</p>
+					<h4>Adria Tisnawati Aprilia</h4>
+					<p class="text-muted"></p>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>	
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="team-member">
-					<img class="mx-auto rounded-circle" src="{{ url('/landing') }}/assets/img/team/2.jpg" alt="..." />
-					<h4>Diana Petersen</h4>
-					<p class="text-muted">Lead Marketer</p>
+					<img class="mx-auto rounded-circle" src="{{ url('/landing') }}/assets/img/team/foto1.jpg" alt="..." />
+					<h4>Febby Saka Wuni</h4>
+					<p class="text-muted"></p>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="team-member">
 					<img class="mx-auto rounded-circle" src="{{ url('/landing') }}/assets/img/team/3.jpg" alt="..." />
-					<h4>Larry Parker</h4>
-					<p class="text-muted">Lead Developer</p>
+					<h4>Feby Maulana Hendrayatno</h4>
+					<p class="text-muted"></p>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
 					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+			<div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Aplikasi sanggar tari adalah aplikasi yang menangani pengelolaan data murid, pelatih, jadwal, penyewaan, dan transaksi yang ada di dalam sanggar tari.  </p></div>
 		</div>
 	</div>
 </section>
+<<<<<<< HEAD
 <!-- Clients-->
 <div class="py-5">
 	<div class="container">
@@ -272,3 +268,6 @@
 </div>
 
 @endsection
+=======
+@endsection
+>>>>>>> 1d86614f03d9b6dc6510d3b964626a7e527704c7

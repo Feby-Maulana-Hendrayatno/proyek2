@@ -13,13 +13,17 @@
                         <span class="fa fa-edit"></span> Ubah Data
                     </h3>
                 </div>
-                <div class="card-body">
-                    <div class="form-group row">
-                        <label for="nama_role" class="col-sm-2 col-form-label">Tari</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_kategori_tari" name="nama_kategori_tari" placeholder="Kategori Tari" value="{{ $edit->nama_kategori_tari }}">
-                        </div>
+                    <div class="card-body">
+                        <label for="nama_role" class="">Nama</label>
+                        <input type="text" class="form-control" id="nama_murid" name="nama_murid" value="{{ $edit->nama_murid }}">
                     </div>
+                <div class="card-body">
+                    <label for="nama_role" >Tari</label>
+                    <input type="text" class="form-control" id="jenis_tari" name="jenis_tari" placeholder="Jenis Tari" value="{{ $edit->jenis_tari }}">
+                </div>
+                <div class="card-body">
+                    <label for="nama_role" >Nilai</label>
+                    <input type="text" class="form-control" id="nilai" name="nilai" placeholder="nilai" value="{{ $edit->nilai }}">
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info btn-sm">
@@ -46,7 +50,9 @@
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
+                            <th class="text-center">Nama</th>
                             <th class="text-center">Tari</th>
+                            <th class="text-center">Nilai</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -55,7 +61,9 @@
                         @foreach($data_role as $role)
                         <tr>
                             <td class="text-center">{{ ++$no }}.</td>
-                            <td class="text-center">{{ $role->nama_kategori_tari }}</td>
+                            <td class="text-center">{{ $role->nama_murid }}</td>
+                            <td class="text-center">{{ $role->jenis_tari }}</td>
+                            <td class="text-center">{{ $role->nilai }}</td>
                             <td class="text-center">
                                 <a href="{{ url('/pelatih/kategori_tari/edit') }}/{{ $role->id }}" class="btn btn-warning btn-sm">
                                     <span class="fa fa-edit"></span>

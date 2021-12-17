@@ -107,9 +107,14 @@
 									<a href="/admin/pelatih/edit/{{ $dp->id }}" class="btn btn-warning btn-sm">
 										<i class="fas fa-edit"></i> Edit
 									</a>
-									<a href="/admin/pelatih/hapus/{{ $dp->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-										<i class="fas fa-trash"></i> Hapus
-									</a>
+									<form method="POST" action="{{ url('/admin/pelatih/hapus') }}" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="foto" value="{{  $dp->foto }}">
+                                        <input type="hidden" name="id" value="{{ $dp->id }}">
+                                        <button onclick="return confirm('Yakin ? Ingin Menghapus Data Ini ?')" type="submit" name="btn-hapus" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash-o"></i> Hapus
+                                        </button>
+                                    </form>
 								</td>
 							</tr>
 							@endforeach

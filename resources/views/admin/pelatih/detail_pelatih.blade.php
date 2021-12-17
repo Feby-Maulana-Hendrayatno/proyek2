@@ -66,7 +66,7 @@
 						</div>
 						<div class="form-group">
 							<label for=""> Foto </label> <br>
-							<img src="/image/{{ $detail->foto }}" width="300">
+							<img src="{{ url('/storage/'.$detail->foto) }}" width="300">
 						</div>
 					</div>
                 </div>

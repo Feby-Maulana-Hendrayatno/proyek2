@@ -20,6 +20,12 @@ class FullCalenderController extends Controller
     	return view('admin/event/data_event');
     }
 
+
+	public function index_pengunjung(Request $request)
+    {
+    	return view('pengunjung/event/data_event_pengunjung');
+    }
+
     public function action(Request $request)
     {
     	if($request->ajax())

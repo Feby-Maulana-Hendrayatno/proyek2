@@ -38,16 +38,16 @@ class NilaiController extends Controller
     {
         $data = [
             "edit" => Nilai::where("id", $id)->first(),
-            "data_role" => Nilai::where("id", "!=", $id)->orderBy("id_murid", "ASC")->get()
+            "data_role" => Nilai::where("id", "!=", $id)->orderBy("id", "ASC")->get()
         ];
 
-        return view("/pelatih/niai/edit_nilai", $data);
+        return view("/pelatih/nilai/edit_nilai", $data);
     }
 
     public function simpan(Request $request)
     {
         Nilai::where("id", $request->id)->update([
-            "id_murid" => $request->id_murid,
+            "id" => $request->id,
             "jenis_tari" => $request->jenis_tari,
             "nilai" => $request->nilai
 

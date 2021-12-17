@@ -1,11 +1,32 @@
 @extends("layouts.template")
 
+@section("ajax_calendar_js")
+
+<script>
+    function viewImage()
+    {
+        const image = document.querySelector('#foto');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
+
+@endsection
+
 @section("header")
 
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="m-0"> Kategori Tari </h1>
+            <h1 class="m-0"> Pelatih </h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -86,7 +107,8 @@
                         </div>
                         <div class="form-group">
                             <label>Foto Pelatih</label>
-                            <input type="file"  name="foto" class="form-control" id="" placeholder="Masukan Foto/Gambar" required>
+                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <input type="file"  name="foto" class="form-control" id="foto" placeholder="Masukan Foto/Gambar" required onchange="viewImage()">
                             <div class="text-danger">
                             <!-- @error('foto_pelatih')
                             {{ $message }}

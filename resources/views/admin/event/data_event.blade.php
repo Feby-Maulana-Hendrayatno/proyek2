@@ -21,6 +21,7 @@
 @section("ajax_calendar_js")
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+<fieldset>
 <script>
 $(document).ready(function () {
 
@@ -138,6 +139,7 @@ $(document).ready(function () {
     });
 
 });
-  
+
 </script>
+</fieldset>
 @endsection

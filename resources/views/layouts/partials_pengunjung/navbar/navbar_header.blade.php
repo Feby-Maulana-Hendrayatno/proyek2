@@ -12,6 +12,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ url('/pengunjung/form/store') }}">Form</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/pengunjung/full-calender/') }}">Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}"> Login </a></li>
             </ul>
         </div>

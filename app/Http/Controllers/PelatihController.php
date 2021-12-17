@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pelatih;
 use File;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class PelatihController extends Controller
 {
@@ -52,33 +53,29 @@ class PelatihController extends Controller
      */
     public function store(Request $request)
     {
-    
-        // $this-> message = [
-        //     'nama_pelstih.required' => 'wajib diisi!!',
-        //     'jenis_kelamin.required' => 'wajib diisi!!',
-        //     'no_hp.required' => 'wajib diisi!!',
-        //     'alamat.required' => 'wajib diisi!!',
-        //     'foto.required' => 'wajib diisi!!',
-        // ];
 
+        $validateData = $request->validate([
+            "nama_pelatih" => "required",
+            "jenis_kelamin" => "required",
+            "umur" => "required",
+            "no_hp" => "required",
+            "alamat" => "required",
+            "foto" => "image"
+        ]);
 
-        // $this->validate($request, [
-        //     'nama_pelatih' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'no_hp' => 'required',
-        //     'alamat' => 'required',
-        //     'foto' => 'required',
-        //     ], $message);
+        if ($request->file("foto")) {
+            $validateData['foto'] = $request->file("foto")->store("image");
+        }
 
-        Pelatih::create($request->all());
+        Pelatih::create($validateData);
         User::create([
             "name" => $request->nama_pelatih,
             "email" => $request->nama_pelatih."@gmail.com",
             "password" => bcrypt("pelatih"),
             "id_role" => 1
-        ]); 
+        ]);
 
-        
+
 
         return redirect("/admin/pelatih")->with("tambah", "Data Berhasil di Tambahkan");
     }
@@ -93,7 +90,7 @@ class PelatihController extends Controller
     {
         $data = [
             "edit" => Pelatih::where("id", $id)->first()
-        ];        
+        ];
         return view("/admin/pelatih/edit_pelatih", $data);
 
     }
@@ -103,7 +100,7 @@ class PelatihController extends Controller
         $data = [
             "detail" => Pelatih::where("id", $id)->first()
         ];
-        
+
         return view("/admin/pelatih/detail_pelatih", $data);
 
     }
@@ -117,29 +114,25 @@ class PelatihController extends Controller
      */
     public function update(Request $request)
     {
-        $update = Pelatih::where("id", $request->id)->first();
+        $validateData = $request->validate([
+            "nama_pelatih" => "required",
+            "jenis_kelamin" => "required",
+            "umur" => "required",
+            "no_hp" => "required",
+            "alamat" => "required",
+            "foto" => "image"
+        ]);
 
-        $update->nama_pelatih = $request->nama_pelatih;
-        $update->jenis_kelamin = $request->jenis_kelamin;
-        $update->umur = $request->umur;
-        $update->no_hp = $request->no_hp;
-        $update->alamat = $request->alamat;
+        if ($request->file("foto")) {
 
-        if ($request->file("foto") == "") {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
 
-            $update->foto = $update->foto;
-
-        } else {
-
-            File::delete("image/".$update->foto);
-
-            $file = $request->file("foto");
-            $fileName = $file->getClientOriginalName();
-            $request->file("foto")->move("image", $fileName);
-            $update->foto_pelatih = $fileName;
+            $validateData['foto'] = $request->file("foto")->store("image");
         }
 
-        $update->update();
+        Pelatih::where("id", $request->id)->update($validateData);
 
         return redirect("/admin/pelatih")->with("update", "Data Berhasil di update");
     }
@@ -150,13 +143,18 @@ class PelatihController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $data = Pelatih::where("id", $id)->first();
+
+        if ($request->foto) {
+            Storage::delete($request->foto);
+        }
+
+        $data = Pelatih::where("id", $request->id)->first();
 
         $nama_pelatih = $data->nama_pelatih;
 
-        Pelatih::where("id", $id)->delete();
+        Pelatih::where("id", $request->id)->delete();
 
         User::where("name", $nama_pelatih)->delete();
 

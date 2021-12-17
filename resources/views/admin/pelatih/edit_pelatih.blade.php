@@ -1,5 +1,26 @@
 @extends("layouts.template")
 
+@section("ajax_calendar_js")
+
+<script>
+    function viewImage()
+    {
+        const image = document.querySelector('#foto');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
+
+@endsection
+
 @section("header")
 
 <div class="container-fluid">
@@ -42,6 +63,7 @@
                 <div class="card-body">
                     <form method="POST" action="/admin/pelatih/update" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <input type="hidden" name="oldImage" value="{{ $edit->foto }}">
                         <input type="hidden" name="id" value="{{ $edit->id }}">
                         <div class="card-body">
                             <div class="form-group">
@@ -75,12 +97,14 @@
                                 <input type="" name="alamat" class="form-control" id="" placeholder="Masukan Alamat" value="{{ $edit->alamat }}" required>
                             </div>
                             <div class="form-group">
-                                <label for=""> Gambar </label> <br>
-                                <img src="/image/{{ $edit->foto }}" width="300" required>
-                            </div>
-                            <div class="form-group">
                                 <label>Foto Pelatih</label>
-                                <input type="file" class="form-control" name="foto" id="" placeholder="Masukan Foto/Gambar">
+                                @if($edit->foto)
+                                <img class="img-preview img-fluid mb-3 col-sm-5 d-block" src="{{ url('/storage/'.$edit->foto) }}">
+                                @else
+                                <img class="img-preview img-fluid mb-3 col-sm-5">
+                                @endif
+
+                                <input type="file"  name="foto" class="form-control" id="foto" placeholder="Masukan Foto/Gambar" required onchange="viewImage()">
                             </div>
                             <br>
                             <div>

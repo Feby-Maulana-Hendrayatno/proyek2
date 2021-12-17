@@ -29,7 +29,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="jenis_tari" >Nama</label>
+                        <label for="jenis_tari" >Jenis Tari</label>
                         <select name="jenis_tari" id="jenis_tari" class="form-control">
                         <option > - Jenis Tari - </option>
                         @foreach ($data_kategori_tari as $tari)
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nilai" >Nilai</label>
-                            <input type="text" class="form-control" id="nilai" name="nilai" placeholder="Nilai">
+                        <input type="text" class="form-control" id="nilai" name="nilai" placeholder="Nilai">
                     </div>
                 </div>
                 <div class="card-footer">
