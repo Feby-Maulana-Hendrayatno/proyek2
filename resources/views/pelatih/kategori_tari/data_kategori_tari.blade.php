@@ -1,7 +1,7 @@
 @extends("layouts.template")
 
 @section('title')
-  Data Kategori Tari
+Data Kategori Tari
 @stop
 
 @section("content")
